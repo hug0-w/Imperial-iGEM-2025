@@ -4,7 +4,7 @@
     <!-- iGEM Required Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/steak.png') }}" sizes="192x192"/>
     <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
     <!-- Adobe Fonts -->
@@ -22,13 +22,13 @@
     <!-- Side Scroll Navigation -->
     <nav class="scroll-nav">
         <ul>
-            <li><a href="#hero-section" class="active"><span>Home</span></a></li>
+            <li><a href="#hero-section" class="active"><span>Growf</span></a></li>
             <li><a href="#project-section"><span>Our Project</span></a></li>
             <li><a href="#features-section"><span>Key Features</span></a></li>
         </ul>
     </nav>
 
-    <!-- Main Header Navigation -->
+    <!-- Navigation -->
     {% include 'menu.html' %}
 
     <!-- Page Content -->
@@ -81,10 +81,20 @@
         function onScroll() {
             scrollY = window.pageYOffset || document.documentElement.scrollTop;
             requestAnimationFrame(drawGrid);
-            const fadeDistance = 250;
-            const opacity = Math.max(0, 1 - (scrollY / fadeDistance));
-            if (headerTitle) { headerTitle.style.opacity = opacity; }
-            if (mainNav) { mainNav.style.opacity = opacity; }
+
+            // Staggered fade logic for header elements
+            const navFadeDistance = 500;  // Increased for a slower fade
+            const titleFadeDistance = 800; // Increased for an even slower fade
+
+            const navOpacity = Math.max(0, 1 - (scrollY / navFadeDistance));
+            const titleOpacity = Math.max(0, 1 - (scrollY / titleFadeDistance));
+
+            if (mainNav) {
+                mainNav.style.opacity = navOpacity;
+            }
+            if (headerTitle) {
+                headerTitle.style.opacity = titleOpacity;
+            }
         }
 
         window.addEventListener('resize', onResize);
@@ -94,13 +104,11 @@
         // --- Scrollspy Script ---
         const sections = document.querySelectorAll('.page-section');
         const navLinks = document.querySelectorAll('.scroll-nav a');
-
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.5 // Section is considered active when 50% is visible
+            threshold: 0.5
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -114,7 +122,6 @@
                 }
             });
         }, observerOptions);
-
         sections.forEach(section => {
             observer.observe(section);
         });

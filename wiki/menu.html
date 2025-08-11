@@ -10,20 +10,9 @@
         <span class="header-title">Team Imperial</span>
     </div>
 
-    <input type="checkbox" id="menu-toggle">
-
-    <label for="menu-toggle" class="hamburger-menu">
-      <div class="hamburger-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </label>
-
     <nav class="main-nav">
       <ul>
         <li><a href="{{ url_for('pages', page='home') }}" class="active">Home</a></li>
-        <!-- Updated links to point to the correct pages -->
         <li><a href="{{ url_for('pages', page='description') }}">Project</a></li>
         <li><a href="{{ url_for('pages', page='notebook') }}">Lab</a></li>
         <li><a href="{{ url_for('pages', page='human-practices') }}">Human Practices</a></li>

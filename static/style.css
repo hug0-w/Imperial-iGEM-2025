@@ -6,8 +6,7 @@
   --color-foreground: #111111;
   --color-muted: #555555;
   --color-accent: #111111;
-  --color-highlight: #FFF75C; /* Added highlight color */
-  --color-header-bg: rgba(242, 242, 240, 0.8);
+  --color-highlight: #FFF75C;
   --font-family-headings: 'jaf-mashine', sans-serif;
   --font-family-body: 'brisbane', sans-serif;
   --font-size-base: 16px;
@@ -15,7 +14,7 @@
   --font-weight-bold: 200;
   --spacing-unit: 1rem;
   --content-max-width: 800px;
-  --header-height: 120px; /* Increased height for larger logo */
+  --header-height: 120px;
 }
 
 *, *::before, *::after {
@@ -73,11 +72,10 @@ h1, h2, h3 {
   margin-top: calc(var(--header-height) + 2rem);
 }
 
-/* New style for content sections */
 .page-section {
     padding: 3rem 0;
     text-align: center;
-    min-height: 80vh; /* Give sections height to make scrolling clear */
+    min-height: 80vh;
 }
 
 .page-section:not(:last-child) {
@@ -89,6 +87,12 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
+.section-image {
+    max-width: 80%;
+    height: auto;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+}
 
 /* ===============================================================
  * === Header & Navigation =======================================
@@ -104,7 +108,7 @@ h1, h2, h3 {
   left: 0;
   width: 100%;
   z-index: 100;
-  background-color: transparent; /* Removed background color */
+  background-color: transparent;
 }
 
 .logo-container {
@@ -117,18 +121,19 @@ h1, h2, h3 {
     font-family: var(--font-family-headings);
     font-weight: var(--font-weight-bold);
     font-size: 2rem;
-    transition: opacity 0.3s ease;
-    /* Added transform to move the text */
     transform: translate(-10px, -10px);
+    /* Slower transition with a longer delay */
+    transition: opacity 0.5s ease 0.4s;
 }
 
 .logo img {
-  height: 100px; /* Changed logo size */
+  height: 100px;
   width: auto;
 }
 
 .main-nav {
-    transition: opacity 0.3s ease; /* Added for smooth fade */
+    /* Faster transition, starts immediately */
+    transition: opacity 0.4s ease;
 }
 
 .main-nav ul {
@@ -138,23 +143,21 @@ h1, h2, h3 {
 }
 
 .main-nav a {
-  font-family: var(--font-family-headings); /* Changed font */
-  font-weight: 600; /* Semi-bold weight */
+  font-family: var(--font-family-headings);
+  font-weight: 600;
   font-size: 1.1rem;
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
-  /* Updated transition to include color */
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .main-nav a:hover {
-  border-bottom-color: var(--color-highlight);
-  color: var(--color-highlight); /* Change text color on hover */
+  color: var(--color-highlight);
 }
 
 .main-nav a.active {
-  border-bottom-color: var(--color-foreground); /* Changed back to black */
-  color: var(--color-foreground); /* Keep active text the default color */
+  border-bottom-color: var(--color-foreground);
+  color: var(--color-foreground);
 }
 
 /* ===============================================================
@@ -183,8 +186,8 @@ h1, h2, h3 {
     align-items: center;
     gap: 1rem;
     color: var(--color-foreground);
-    font-family: var(--font-family-body);
-    font-weight: bold;
+    font-family: var(--font-family-headings);
+    font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -204,13 +207,12 @@ h1, h2, h3 {
     transition: all 0.3s ease;
 }
 
-/* Change text color only on hover */
 .scroll-nav a:hover {
     color: var(--color-highlight);
 }
 
 .scroll-nav a.active {
-    color: var(--color-foreground); /* Keep active text the default color */
+    color: var(--color-foreground);
 }
 
 .scroll-nav a.active span,
@@ -226,71 +228,13 @@ h1, h2, h3 {
 
 .scroll-nav a.active::after {
     width: 40px;
-    background-color: var(--color-foreground); /* Active indicator is black */
+    background-color: var(--color-foreground);
 }
 
-/* Hide on mobile */
 @media (max-width: 1024px) {
     .scroll-nav {
         display: none;
     }
-}
-
-
-/* ===============================================================
- * === Responsive Hamburger Menu =================================
- * =============================================================== */
-.hamburger-menu, #menu-toggle {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .main-nav {
-    display: none;
-    position: absolute;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
-    background-color: var(--color-background);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  #menu-toggle:checked ~ .main-nav { display: block; }
-  .main-nav ul {
-    flex-direction: column;
-    align-items: center;
-    padding: var(--spacing-unit) 0;
-    width: 100%;
-  }
-  .main-nav li {
-    width: 100%;
-    text-align: center;
-    padding: var(--spacing-unit) 0;
-  }
-  .hamburger-menu {
-    display: block;
-    cursor: pointer;
-  }
-  .hamburger-icon {
-    width: 30px;
-    height: 22px;
-    position: relative;
-  }
-  .hamburger-icon span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: var(--color-foreground);
-    border-radius: 3px;
-    left: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .hamburger-icon span:nth-child(1) { top: 0px; }
-  .hamburger-icon span:nth-child(2) { top: 9px; }
-  .hamburger-icon span:nth-child(3) { top: 18px; }
-  #menu-toggle:checked ~ .hamburger-menu .hamburger-icon span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-  #menu-toggle:checked ~ .hamburger-menu .hamburger-icon span:nth-child(2) { opacity: 0; }
-  #menu-toggle:checked ~ .hamburger-menu .hamburger-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 }
 
 /* ===============================================================
