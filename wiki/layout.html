@@ -16,14 +16,108 @@
     <title>{% block title %}{% endblock %} | Imperial - iGEM 2025</title>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- The canvas for the animated background -->
+    <canvas id="geometric-canvas"></canvas>
+
+    <!-- Side Scroll Navigation -->
+    <nav class="scroll-nav">
+        <ul>
+            <li><a href="#hero-section" class="active"><span>Home</span></a></li>
+            <li><a href="#project-section"><span>Our Project</span></a></li>
+            <li><a href="#features-section"><span>Key Features</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Header Navigation -->
     {% include 'menu.html' %}
 
     <!-- Page Content -->
-    {% block page_content %}{% endblock %}
+    <div class="content">
+        {% block page_content %}{% endblock %}
+    </div>
 
     <!-- Footer -->
     {% include 'footer.html' %}
 
+    <!-- Animation & Scrollspy Script -->
+    <script>
+        // --- Canvas Animation Script ---
+        const canvas = document.getElementById('geometric-canvas');
+        const ctx = canvas.getContext('2d');
+        const headerTitle = document.querySelector('.header-title');
+        const mainNav = document.querySelector('.main-nav');
+
+        const TILE_SIZE = 50;
+        const SCROLL_SENSITIVITY = 0.1;
+
+        let scrollY = 0;
+        let columnSpeeds = [];
+
+        function drawGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let x = 0; x < canvas.width; x += TILE_SIZE) {
+                const colIndex = Math.floor(x / TILE_SIZE);
+                if (!columnSpeeds[colIndex]) return; 
+                const verticalOffset = scrollY * SCROLL_SENSITIVITY * columnSpeeds[colIndex];
+                for (let y = 0; y < canvas.height + TILE_SIZE; y += TILE_SIZE) {
+                    const opacity = (Math.sin(y * 0.01 + x * 0.01) + 1) / 2;
+                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.1})`;
+                    ctx.fillRect(x, y - (verticalOffset % (canvas.height + TILE_SIZE)), TILE_SIZE - 2, TILE_SIZE - 2);
+                }
+            }
+        }
+
+        function onResize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columnSpeeds = [];
+            const numColumns = Math.ceil(canvas.width / TILE_SIZE);
+            for (let i = 0; i < numColumns; i++) {
+                columnSpeeds.push(Math.random() * 0.5 + 0.5);
+            }
+            drawGrid();
+        }
+
+        function onScroll() {
+            scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            requestAnimationFrame(drawGrid);
+            const fadeDistance = 250;
+            const opacity = Math.max(0, 1 - (scrollY / fadeDistance));
+            if (headerTitle) { headerTitle.style.opacity = opacity; }
+            if (mainNav) { mainNav.style.opacity = opacity; }
+        }
+
+        window.addEventListener('resize', onResize);
+        window.addEventListener('scroll', onScroll);
+        onResize();
+
+        // --- Scrollspy Script ---
+        const sections = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('.scroll-nav a');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Section is considered active when 50% is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
