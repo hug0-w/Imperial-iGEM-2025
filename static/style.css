@@ -1,18 +1,223 @@
-body { padding-top: 56px; }
-.left-aligned { margin-left: auto; }
-.bg-dark { background-color: #343a40 !important; }
-.bg-hero { background-color: #45b06cff; }
+/* ----------------------------------------------------------------
+--- 1. Global Styles & CSS Variables ---
+------------------------------------------------------------------- */
+:root {
+  /* Color Palette (Light Theme) */
+  --color-background: #F2F2F0;
+  --color-foreground: #111111;
+  --color-muted: #555555;
+  --color-accent: #111111;
+  --color-header-bg: rgba(242, 242, 240, 0.8);
 
-/* CALLOUT */
-.bd-callout { padding:1.25rem; margin-top:1.25rem; margin-bottom:1.25rem; border:1px solid #e9ecef; border-left-width:.25rem; border-radius:.25rem }
-.bd-callout h4 { margin-bottom: 1.25rem }
-.bd-callout p:last-child { margin-bottom:0 }
-.bd-callout code { border-radius:.25rem }
-.bd-callout+.bd-callout { margin-top:-.25rem }
-.bd-callout-info { border-left-color:#5bc0de }
-.bd-callout-warning { border-left-color:#f0ad4e }
-.bd-callout-danger { border-left-color:#d9534f }
+  /* Typography */
+  --font-family-headings: 'jaf-mashine', sans-serif;
+  --font-family-body: 'brisbane', sans-serif;
+  --font-size-base: 16px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 200;
 
-/* footer */
-footer a { color: white; font-weight: bold; text-decoration: none; }
-footer a:hover { color: white; text-decoration: underline; }
+  /* Spacing & Layout */
+  --spacing-unit: 1rem;
+  --content-max-width: 1000px;
+  --header-height: 80px;
+}
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+
+.main-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 2);
+}
+
+/* ----------------------------------------------------------------
+--- 2. Header and Navigation ---
+------------------------------------------------------------------- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  padding: 0 calc(var(--spacing-unit) * 2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.main-nav a {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-normal); 
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  border-bottom-color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------
+--- 3. Responsive Hamburger Menu ---
+------------------------------------------------------------------- */
+.hamburger-menu {
+  display: none;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  #menu-toggle:checked ~ .main-nav {
+    display: block;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-unit) 0;
+    width: 100%;
+  }
+  
+  .main-nav li {
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-unit) 0;
+  }
+
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger-icon {
+    width: 30px;
+    height: 22px;
+    position: relative;
+  }
+  
+  .hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--color-foreground);
+    border-radius: 3px;
+    left: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger-icon span:nth-child(1) { top: 0px; }
+  .hamburger-icon span:nth-child(2) { top: 9px; }
+  .hamburger-icon span:nth-child(3) { top: 18px; }
+
+  #menu-toggle:checked ~ .hamburger-menu .hamburger-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  #menu-toggle:checked ~ .hamburger-menu .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked ~ .hamburger-menu .hamburger-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+/* ----------------------------------------------------------------
+--- 4. Page Sections & Footer ---
+------------------------------------------------------------------- */
+.content-section {
+  min-height: 60vh;
+  padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content-section p {
+  max-width: 650px;
+  color: var(--color-muted);
+  font-size: 1.2rem;
+}
+
+.main-footer {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 4);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.main-footer p {
+    margin-bottom: 0.5rem;
+}
