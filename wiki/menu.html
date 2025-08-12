@@ -10,13 +10,14 @@
         <span class="header-title">Team Imperial</span>
     </div>
 
-    <nav class="main-nav">
-      <ul>
-        <li><a href="{{ url_for('pages', page='home') }}" class="active">Home</a></li>
-        <li><a href="{{ url_for('pages', page='description') }}">Project</a></li>
-        <li><a href="{{ url_for('pages', page='notebook') }}">Lab</a></li>
-        <li><a href="{{ url_for('pages', page='human-practices') }}">Human Practices</a></li>
-        <li><a href="{{ url_for('pages', page='members') }}">Team</a></li>
-      </ul>
+    <nav class="nav-dropdown">
+        <button class="dropdown-btn">Menu</button>
+        <div class="dropdown-content">
+            <a href="{{ url_for('pages', page='home') }}">Home</a>
+            <a href="{{ url_for('pages', page='description') }}">Project</a>
+            <a href="{{ url_for('pages', page='notebook') }}">Lab</a>
+            <a href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a href="{{ url_for('pages', page='team') }}">Team</a>
+        </div>
     </nav>
 </header>

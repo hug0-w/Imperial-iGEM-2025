@@ -4,7 +4,7 @@
     <!-- iGEM Required Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/steak.png') }}" sizes="192x192"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/logo_bg.webp') }}" sizes="32x32"/>
     <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
     <!-- Adobe Fonts -->
@@ -19,14 +19,8 @@
     <!-- The canvas for the animated background -->
     <canvas id="geometric-canvas"></canvas>
 
-    <!-- Side Scroll Navigation -->
-    <nav class="scroll-nav">
-        <ul>
-            <li><a href="#hero-section" class="active"><span>Growf</span></a></li>
-            <li><a href="#project-section"><span>Our Project</span></a></li>
-            <li><a href="#features-section"><span>Key Features</span></a></li>
-        </ul>
-    </nav>
+    <!-- Side Scroll Navigation Block -->
+    {% block scroll_nav %}{% endblock %}
 
     <!-- Navigation -->
     {% include 'menu.html' %}
@@ -44,8 +38,8 @@
         // --- Canvas Animation Script ---
         const canvas = document.getElementById('geometric-canvas');
         const ctx = canvas.getContext('2d');
-        const headerTitle = document.querySelector('.header-title');
-        const mainNav = document.querySelector('.main-nav');
+        const mainHeader = document.querySelector('.main-header');
+        const contentBox = document.querySelector('.content');
 
         const TILE_SIZE = 50;
         const SCROLL_SENSITIVITY = 0.1;
@@ -61,7 +55,7 @@
                 const verticalOffset = scrollY * SCROLL_SENSITIVITY * columnSpeeds[colIndex];
                 for (let y = 0; y < canvas.height + TILE_SIZE; y += TILE_SIZE) {
                     const opacity = (Math.sin(y * 0.01 + x * 0.01) + 1) / 2;
-                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.1})`;
+                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.07})`;
                     ctx.fillRect(x, y - (verticalOffset % (canvas.height + TILE_SIZE)), TILE_SIZE - 2, TILE_SIZE - 2);
                 }
             }
@@ -82,18 +76,23 @@
             scrollY = window.pageYOffset || document.documentElement.scrollTop;
             requestAnimationFrame(drawGrid);
 
-            // Staggered fade logic for header elements
-            const navFadeDistance = 500;  // Increased for a slower fade
-            const titleFadeDistance = 800; // Increased for an even slower fade
-
-            const navOpacity = Math.max(0, 1 - (scrollY / navFadeDistance));
-            const titleOpacity = Math.max(0, 1 - (scrollY / titleFadeDistance));
-
-            if (mainNav) {
-                mainNav.style.opacity = navOpacity;
+            if (mainHeader) {
+                if (scrollY > 50) {
+                    mainHeader.classList.add('scrolled');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                }
             }
-            if (headerTitle) {
-                headerTitle.style.opacity = titleOpacity;
+
+            // --- Dynamic Notched Corner Animation ---
+            if (contentBox) {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = scrollY / scrollHeight;
+                
+                // Map the scroll percentage to the notch size (e.g., from 30px to 60px)
+                const notchSize = 30 + (scrollPercent * 30);
+
+                contentBox.style.setProperty('--notch-size', `${notchSize}px`);
             }
         }
 
@@ -106,8 +105,9 @@
         const navLinks = document.querySelectorAll('.scroll-nav a');
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.5
+            // Adjust the rootMargin to better detect the top-most section
+            rootMargin: '0px 0px -50% 0px',
+            threshold: 0
         };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

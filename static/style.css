@@ -1,6 +1,3 @@
-/* ===============================================================
- * === Global Styles & CSS Variables =============================
- * =============================================================== */
 :root {
   --color-background: #F2F2F0;
   --color-foreground: #111111;
@@ -41,7 +38,9 @@ a {
   transition: color 0.3s ease;
 }
 
-a:hover { opacity: 0.7; }
+a:hover {
+  color: var(--color-highlight);
+}
 
 h1, h2, h3 {
   font-family: var(--font-family-headings);
@@ -49,9 +48,6 @@ h1, h2, h3 {
   margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 
-/* ===============================================================
- * === Canvas & Content Layout ===================================
- * =============================================================== */
 #geometric-canvas {
   position: fixed;
   top: 0;
@@ -65,17 +61,30 @@ h1, h2, h3 {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 50px 20px;
-  background-color: rgba(242, 242, 240, 0.8);
+  background-color: #F2F2F0;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius: 1rem;
-  margin-top: calc(var(--header-height) + 2rem);
+  clip-path: polygon(30px 0%, 100% 0%, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+  border-radius: 0;
+  margin-top: calc(var(--header-height) + 1rem);
 }
 
+.content h1, .content h2, .content h3 {
+    color: var(--color-foreground);
+}
+.content p {
+    color: var(--color-foreground);
+}
+
+
 .page-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     text-align: center;
-    min-height: 80vh;
+    min-height: auto;
+}
+
+#hero-section {
+    padding-top: 0;
 }
 
 .page-section:not(:last-child) {
@@ -94,9 +103,42 @@ h1, h2, h3 {
     border-radius: 0.5rem;
 }
 
-/* ===============================================================
- * === Header & Navigation =======================================
- * =============================================================== */
+.hero-logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem; 
+}
+
+.tagline {
+    font-family: var(--font-family-body);
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: var(--color-foreground);
+    text-shadow: none;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
+
+.tagline span {
+    background-color: var(--color-highlight);
+    padding: 0.1em 0.4em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.tagline-lime-green span {
+  background-color: #D6FF36; 
+}
+
+.tagline-mint-green span {
+  background-color: #8AFF7B; 
+}
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -122,8 +164,7 @@ h1, h2, h3 {
     font-weight: var(--font-weight-bold);
     font-size: 2rem;
     transform: translate(-10px, -10px);
-    /* Slower transition with a longer delay */
-    transition: opacity 0.5s ease 0.4s;
+    transition: opacity 0.4s ease;
 }
 
 .logo img {
@@ -131,38 +172,50 @@ h1, h2, h3 {
   width: auto;
 }
 
-.main-nav {
-    /* Faster transition, starts immediately */
-    transition: opacity 0.4s ease;
+.nav-dropdown {
+    position: relative;
 }
 
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: calc(var(--spacing-unit) * 2);
+.dropdown-btn {
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--color-foreground);
 }
 
-.main-nav a {
-  font-family: var(--font-family-headings);
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease, color 0.3s ease;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: rgba(242, 242, 240, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    min-width: 180px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    z-index: 1;
+    padding: 0.5rem 0;
 }
 
-.main-nav a:hover {
-  color: var(--color-highlight);
+.dropdown-content a {
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    color: var(--color-foreground);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
 }
 
-.main-nav a.active {
-  border-bottom-color: var(--color-foreground);
-  color: var(--color-foreground);
+.nav-dropdown:hover .dropdown-content {
+    display: block;
 }
 
-/* ===============================================================
- * === Side Scroll Navigation ====================================
- * =============================================================== */
 .scroll-nav {
     position: fixed;
     right: 2rem;
@@ -237,9 +290,11 @@ h1, h2, h3 {
     }
 }
 
-/* ===============================================================
- * === Footer ====================================================
- * =============================================================== */
+.main-header.scrolled .header-title {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .main-footer {
   text-align: center;
   padding: calc(var(--spacing-unit) * 3);
@@ -253,4 +308,16 @@ h1, h2, h3 {
 
 .main-footer p {
   margin-bottom: 0.5rem;
+}
+
+#project-section {
+  background-color: #F2F2F0; 
+  color: #000000; 
+}
+
+.accent-text {
+  background-color: #D6FF36;
+  padding: 0.1em 0.4em;
+  font-weight: 600; 
+  color: var(--color-foreground); /* This ensures the text is black */
 }

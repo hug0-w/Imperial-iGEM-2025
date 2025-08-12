@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Team{% endblock %}
+
+{% block scroll_nav %}
+<nav class="scroll-nav">
+    <ul>
+        <li><a href="#members-section" class="active"><span>Members</span></a></li>
+        <li><a href="#advisors-section"><span>Advisors</span></a></li>
+        <li><a href="#attributions-section"><span>Attributions</span></a></li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block page_content %}
+    <div class="page-section" id="members-section">
+      <h2>Meet the Team</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <!-- Add team member grid here -->
+    </div>
+
+    <div class="page-section" id="advisors-section">
+      <h2>Advisors & Mentors</h2>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    
+    <div class="page-section" id="attributions-section">
+      <h2>Attributions</h2>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+{% endblock %}
