@@ -4,7 +4,7 @@
     <!-- iGEM Required Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/logo_bg.webp') }}" sizes="32x32"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/logo_bg.webp') }}" sizes="192x192"/>
     <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
     <!-- Adobe Fonts -->
@@ -55,7 +55,7 @@
                 const verticalOffset = scrollY * SCROLL_SENSITIVITY * columnSpeeds[colIndex];
                 for (let y = 0; y < canvas.height + TILE_SIZE; y += TILE_SIZE) {
                     const opacity = (Math.sin(y * 0.01 + x * 0.01) + 1) / 2;
-                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.07})`;
+                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.03})`;
                     ctx.fillRect(x, y - (verticalOffset % (canvas.height + TILE_SIZE)), TILE_SIZE - 2, TILE_SIZE - 2);
                 }
             }
@@ -83,47 +83,53 @@
                     mainHeader.classList.remove('scrolled');
                 }
             }
-
-            // --- Dynamic Notched Corner Animation ---
-            if (contentBox) {
-                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercent = scrollY / scrollHeight;
-                
-                // Map the scroll percentage to the notch size (e.g., from 30px to 60px)
-                const notchSize = 30 + (scrollPercent * 30);
-
-                contentBox.style.setProperty('--notch-size', `${notchSize}px`);
-            }
         }
 
         window.addEventListener('resize', onResize);
         window.addEventListener('scroll', onScroll);
         onResize();
 
-        // --- Scrollspy Script ---
+        // --- Scrollspy Script (Corrected Version) ---
         const sections = document.querySelectorAll('.page-section');
         const navLinks = document.querySelectorAll('.scroll-nav a');
-        const observerOptions = {
-            root: null,
-            // Adjust the rootMargin to better detect the top-most section
-            rootMargin: '0px 0px -50% 0px',
-            threshold: 0
-        };
-        const observer = new IntersectionObserver((entries) => {
+
+        const scrollSpyObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`.scroll-nav a[href="#${id}"]`);
+                
                 if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
                 }
             });
-        }, observerOptions);
+        }, { 
+            rootMargin: '-50% 0px -50% 0px' 
+        });
+
         sections.forEach(section => {
-            observer.observe(section);
+            scrollSpyObserver.observe(section);
+        });
+
+
+        // --- Scroll Animation Script (Restored) ---
+        const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.45
+        });
+
+        sectionsToAnimate.forEach(section => {
+            animationObserver.observe(section);
         });
     </script>
 </body>
