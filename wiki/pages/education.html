@@ -1,34 +1,95 @@
 {% extends "layout.html" %}
-  
+
 {% block title %}Education{% endblock %}
-{% block lead %}Innovative educational tools and outreach activities have the ability to establish a two-way dialogue with new communities by discussing public values and the science behind synthetic biology.{% endblock %}
+
+{% block scroll_nav %}
+<nav class="scroll-nav">
+    <ul>
+        <li><a href="#kindergarten-section" class="active"><span>Kindergarten</span></a></li>
+        <li><a href="#high-school-section"><span>High School</span></a></li>
+        <li><a href="#university-section"><span>University</span></a></li>
+        <li><a href="#professionals-section"><span>Professionals</span></a></li>
+        <li><a href="#general-public-section"><span>General Public</span></a></li>
+    </ul>
+</nav>
+{% endblock %}
 
 {% block page_content %}
-
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Best Education</h4>
-      <p>Innovative educational tools and outreach activities have the ability to establish a two-way dialogue with new communities by discussing public values and the science behind synthetic biology. How have you developed new opportunities to include more people in shaping synthetic biology? Education activities do not have to be directly related to your project but may look at wider issues of iGEM or synthetic biology.  Education activities must promote scientific learning and avoid simply proselytizing or marketing synthetic biology and/or iGEM. Document your approach, and what was learned by everyone involved, to compete for this award.</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/special-prizes">Special Prizes page</a> for more information.</p>
+    <div class="page-section" id="intro-section">
+      <h2>Education & Communication</h2>
+      <p>Our approach to education is centered on creating a two-way dialogue with diverse audiences, ensuring mutual learning and meaningful engagement.</p>
     </div>
-  </div>
-</div>
 
-<div class="row mt-4">
-  <div class="col">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/cityu-hongkong/education">2024 CityU-HongKong</a></li>
-      <li><a href="https://2024.igem.wiki/cjuh-jlu-china/education">2024 CJUH-JLU-China</a></li>
-      <li><a href="https://2024.igem.wiki/keystone/education">2024 Keystone</a></li>
-      <li><a href="https://2024.igem.wiki/stanford/education">2024 Stanford</a></li>
-      <li><a href="https://2024.igem.wiki/gems-taiwan/education">2024 GEMS-Taiwan</a></li>
-      <li><a href="https://2024.igem.wiki/heidelberg/education">2024 Heidelberg</a></li>
-    </ul>
-  </div>
-</div>
+     
+    <div class="page-section animate-on-scroll" id="kindergarten-section">
+      <h3>Kindergarten</h3>
+    
+    <!-- "Our Approach" Block -->
+    <div class="dialogue-block approach animate-on-scroll">
+        <h4>Our Approach</h4>
+        <p>We developed an interactive storybook about cellular agriculture...</p>
+    </div>
 
+    <!-- "Feedback" Block -->
+    <div class="dialogue-block feedback">
+        <h4>Community Feedback & Mutual Learning</h4>
+        <p>The children's questions about where food comes from helped us refine our analogies...</p>
+    </div>
+    </div>
+
+    <div class="page-section animate-on-scroll" id="high-school-section">
+        <h3>High School</h3>
+        <div class="two-column-grid">
+            <div class="column">
+                <h4>Our Approach</h4>
+                <p>We hosted a hands-on workshop where students could perform a basic cell culture protocol, simulating the first steps of our project.</p>
+            </div>
+            <div class="column">
+                <h4>Community Feedback & Mutual Learning</h4>
+                <p>Feedback from students revealed a strong interest in the ethical implications of lab-grown meat. This prompted us to develop a new section in our presentation dedicated to bioethics, which we later used for other audiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-section animate-on-scroll" id="university-section">
+        <h3>University</h3>
+        <div class="two-column-grid">
+            <div class="column">
+                <h4>Our Approach</h4>
+                <p>We presented our project at a university symposium and held a Q&A session with undergraduate biology students.</p>
+            </div>
+            <div class="column">
+                <h4>Community Feedback & Mutual Learning</h4>
+                <p>The university students provided valuable technical feedback on our experimental design, suggesting alternative growth mediums that we are now investigating. This was a clear example of mutual learning.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-section animate-on-scroll" id="professionals-section">
+        <h3>Professionals</h3>
+        <div class="two-column-grid">
+            <div class="column">
+                <h4>Our Approach</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="column">
+                <h4>Community Feedback & Mutual Learning</h4>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-section animate-on-scroll" id="general-public-section">
+        <h3>General Public</h3>
+        <div class="two-column-grid">
+            <div class="column">
+                <h4>Our Approach</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="column">
+                <h4>Community Feedback & Mutual Learning</h4>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
