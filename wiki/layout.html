@@ -4,7 +4,7 @@
     <!-- iGEM Required Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/logo_bg.webp') }}" sizes="192x192"/>
+    <link rel="shortcut icon" href="https://static.igem.wiki/teams/5916/assets/images/logo-bg.webp" sizes="192x192"/>
     <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
     <!-- Adobe Fonts -->
@@ -16,10 +16,10 @@
     <title>{% block title %}{% endblock %} | Imperial - iGEM 2025</title>
 </head>
 <body class="{% block body_class %}{% endblock %}">
-    <!-- The canvas for the animated background -->
+   
     <canvas id="geometric-canvas"></canvas>
 
-    <!-- Side Scroll Navigation Block -->
+    
     {% block scroll_nav %}{% endblock %}
 
     <!-- Navigation -->
@@ -35,7 +35,7 @@
 
     <!-- Animation & Scrollspy Script -->
     <script>
-        // --- Canvas Animation Script ---
+        
         const canvas = document.getElementById('geometric-canvas');
         const ctx = canvas.getContext('2d');
         const mainHeader = document.querySelector('.main-header');
@@ -55,7 +55,7 @@
                 const verticalOffset = scrollY * SCROLL_SENSITIVITY * columnSpeeds[colIndex];
                 for (let y = 0; y < canvas.height + TILE_SIZE; y += TILE_SIZE) {
                     const opacity = (Math.sin(y * 0.01 + x * 0.01) + 1) / 2;
-                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.015})`;
+                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.01})`;
                     ctx.fillRect(x, y - (verticalOffset % (canvas.height + TILE_SIZE)), TILE_SIZE - 2, TILE_SIZE - 2);
                 }
             }
@@ -89,7 +89,7 @@
         window.addEventListener('scroll', onScroll);
         onResize();
 
-        // --- Scrollspy Script (Corrected Version) ---
+        // Scrollspy 
         const sections = document.querySelectorAll('.page-section');
         const navLinks = document.querySelectorAll('.scroll-nav a');
 
@@ -114,7 +114,7 @@
         });
 
 
-        // --- Scroll Animation Script (Restored) ---
+        // Scroll Animation Script
         const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
         const animationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

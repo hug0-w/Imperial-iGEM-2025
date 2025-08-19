@@ -202,7 +202,7 @@ h1, h2, h3 {
 }
 
 .mirrored-wave {
-  margin-top: -10px; /* Adjust this value as needed */
+  margin-top: -10px;
 }
 
 .wavy-divider svg {
@@ -478,10 +478,10 @@ h1, h2, h3 {
 .accent-btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    background-color: var(--color-highlight); /* This uses your yellow color */
-    color: var(--color-foreground); /* This makes the text black */
+    background-color: var(--color-highlight);
+    color: var(--color-foreground);
     font-family: var(--font-family-headings);
-    font-weight: 600; /* Bold text */
+    font-weight: 600; 
     text-decoration: none;
     border-radius: 50px; 
     transition: transform 0.3s ease;
@@ -498,14 +498,14 @@ h1, h2, h3 {
 }
 
 .accent-btn.btn-lime-green {
-    background-color: #D6FF36; /* A pastel green */
+    background-color: #D6FF36;
 }
 
 .button-row {
     display: flex;
-    justify-content: center; /* This centers the row of buttons */
-    gap: 1rem; /* This adds space between each button */
-    margin-top: 2rem; /* Adds some space above the buttons */
+    justify-content: center; 
+    gap: 1rem; 
+    margin-top: 2rem; 
 }
 
 
@@ -535,7 +535,7 @@ h1, h2, h3 {
 
 
 
- /* By default, show the text and hide the icon on desktop */
+
 .hamburger-icon {
     display: none;
 }
@@ -543,7 +543,7 @@ h1, h2, h3 {
     display: inline;
 }
 
-/* On mobile screens (768px or less), do the opposite */
+
 @media (max-width: 768px) {
     .menu-text {
         display: none;
@@ -571,15 +571,15 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-/* Style for "Our Approach" blocks */
+
 .dialogue-block.approach {
     background-color: rgba(0, 0, 0, 0.05);
     border-left: 5px solid var(--color-foreground);
 }
 
-/* Style for "Feedback" blocks */
+
 .dialogue-block.feedback {
-    background-color: rgba(255, 247, 92, 0.2); /* Faint yellow background */
+    background-color: rgba(255, 247, 92, 0.2); 
     border-left: 5px solid var(--color-highlight);
 }
 
