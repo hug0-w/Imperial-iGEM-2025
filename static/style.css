@@ -68,10 +68,8 @@ h1, h2, h3 {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 0px 0px;
-  background-color: #F2F2F0;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  clip-path: polygon(30px 0%, 100% 0%, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+  background-color: transparent;
+  clip-path: none;
   border-radius: 0;
   margin-top: calc(var(--header-height) + 1rem);
 }
@@ -88,6 +86,14 @@ h1, h2, h3 {
     padding: 2rem 20px;
     text-align: center;
     min-height: auto;
+    clip-path: polygon(30px 0%, 100% 0%, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+    background-color: #F2F2F0;    
+}
+
+.is-transparent {
+    background-color: transparent;
+    clip-path: none;
+    
 }
 
 #hero-section {
@@ -96,6 +102,10 @@ h1, h2, h3 {
 
 .page-section:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page-section.is-transparent:not(:last-child) {
+    border-bottom: none;
 }
 
 .page-section p {
@@ -495,7 +505,7 @@ h1, h2, h3 {
     text-decoration: none;
     border-radius: 50px; 
     transition: transform 0.3s ease;
-    border: 0.1px solid #000000;
+    border: 0px solid #000000;
 }
 
 .accent-btn:hover {
@@ -509,6 +519,10 @@ h1, h2, h3 {
 
 .accent-btn.btn-lime-green {
     background-color: #D6FF36;
+}
+
+.accent-btn.btn-sky-blue {
+    background-color: #00C8FF;
 }
 
 .button-row {
@@ -598,3 +612,21 @@ h1, h2, h3 {
 
 
 
+/* ===============================================================
+ * === PDF Embed Styles ==========================================
+ * =============================================================== */
+.pdf-container {
+    width: 60%;
+    aspect-ratio: 4 / 3; 
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    overflow: hidden; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none; 
+}
