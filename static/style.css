@@ -534,7 +534,7 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
   .accent-btn {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
     padding: 0.6rem 1.5rem;
   }
 }
