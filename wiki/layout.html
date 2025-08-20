@@ -89,6 +89,30 @@
         window.addEventListener('scroll', onScroll);
         onResize();
 
+        // Scrollspy 
+        const sections = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('.scroll-nav a');
+
+        const scrollSpyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`.scroll-nav a[href="#${id}"]`);
+                
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+        }, { 
+            rootMargin: '-50% 0px -50% 0px' 
+        });
+
+        sections.forEach(section => {
+            scrollSpyObserver.observe(section);
+        });
+
 
         // Scroll Animation Script
         const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
@@ -107,7 +131,6 @@
         sectionsToAnimate.forEach(section => {
             animationObserver.observe(section);
         });
-        
     </script>
 </body>
 </html>
