@@ -8,7 +8,6 @@
         <li><a href="#kindergarten-section" class="active"><span>Kindergarten</span></a></li>
         <li><a href="#high-school-section"><span>High School</span></a></li>
         <li><a href="#university-section"><span>University</span></a></li>
-        <li><a href="#professionals-section"><span>Professionals</span></a></li>
         <li><a href="#general-public-section"><span>General Public</span></a></li>
     </ul>
 </nav>
@@ -16,15 +15,58 @@
 
 {% block page_content %}
     <div class="page-section" id="intro-section">
-      <h2>Education & Communication</h2>
+      <h2 class="tagline" style="text-align: center;">Education & Communication</h2>
       <p>Our approach to education is centered on creating a two-way dialogue with diverse audiences, ensuring mutual learning and meaningful engagement.</p>
     </div>
 
-     
+
+    <!-- Kindergarten -->
+
+
+
     <div class="page-section animate-on-scroll" id="kindergarten-section">
-      <h3>Kindergarten</h3>
+      <h2 class="tagline tagline-lime-green"><span>Kindergarten</span></h2>
     
     
+    <div class="dialogue-block approach animate-on-scroll" style="transform: translateX(-5vw);">
+        <h4>Our Approach</h4>
+        <p>We developed...</p>
+    </div>
+
+    
+    <div class="dialogue-block feedback" style="transform: translateX(5vw);">
+        <h4>Community Feedback & Mutual Learning</h4>
+        <p>The...</p>
+    </div>
+    </div>
+
+    <!-- High School -->
+
+  
+
+    <div class="page-section animate-on-scroll" id="high-school-section">
+        <h2 class="tagline tagline-mint-green"><span>High School</span></h2>
+      
+    <div class="dialogue-block approach animate-on-scroll" style="transform: translateX(-5vw);">
+        <h4>Our Approach</h4>
+        <p>We developed...</p>
+    </div>
+
+    
+    <div class="dialogue-block feedback" style="transform: translateX(5vw);">
+        <h4>Community Feedback & Mutual Learning</h4>
+        <p>The...</p>
+    </div>
+    </div>
+
+        <!-- Univesrity -->
+
+
+
+
+    <div class="page-section animate-on-scroll" id="university-section">
+        <h2 class="tagline tagline-sky-blue"><span>University</span></h2>
+
     <div class="dialogue-block approach animate-on-scroll">
         <h4>Our Approach</h4>
         <p>We developed...</p>
@@ -35,61 +77,29 @@
         <h4>Community Feedback & Mutual Learning</h4>
         <p>The...</p>
     </div>
-    </div>
+    </div>        
 
-    <div class="page-section animate-on-scroll" id="high-school-section">
-        <h3>High School</h3>
-        <div class="two-column-grid">
-            <div class="column">
-                <h4>Our Approach</h4>
-                <p>We hosted a hands-on workshop where students could perform a basic cell culture protocol, simulating the first steps of our project.</p>
-            </div>
-            <div class="column">
-                <h4>Community Feedback & Mutual Learning</h4>
-                <p>Feedback from students revealed a strong interest in the ethical implications of lab-grown meat. This prompted us to develop a new section in our presentation dedicated to bioethics, which we later used for other audiences.</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="page-section animate-on-scroll" id="university-section">
-        <h3>University</h3>
-        <div class="two-column-grid">
-            <div class="column">
-                <h4>Our Approach</h4>
-                <p>We presented...</p>
-            </div>
-            <div class="column">
-                <h4>Community Feedback & Mutual Learning</h4>
-                <p>The ...</p>
-            </div>
-        </div>
-    </div>
+       
 
-    <div class="page-section animate-on-scroll" id="professionals-section">
-        <h3>Professionals</h3>
-        <div class="two-column-grid">
-            <div class="column">
-                <h4>Our Approach</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="column">
-                <h4>Community Feedback & Mutual Learning</h4>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-    </div>
+     <!-- Public -->
+
+
 
     <div class="page-section animate-on-scroll" id="general-public-section">
-        <h3>General Public</h3>
-        <div class="two-column-grid">
-            <div class="column">
-                <h4>Our Approach</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="column">
-                <h4>Community Feedback & Mutual Learning</h4>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
+        <h2 class="tagline tagline-orange"><span>General Public</span></h2>
+
+     <div class="dialogue-block approach animate-on-scroll">
+        <h4>Our Approach</h4>
+        <p>We developed...</p>
     </div>
+
+    
+    <div class="dialogue-block feedback">
+        <h4>Community Feedback & Mutual Learning</h4>
+        <p>The...</p>
+    </div>
+    </div>          
+
+
 {% endblock %}
