@@ -532,6 +532,12 @@ h1, h2, h3 {
     margin-top: 2rem; 
 }
 
+@media (max-width: 768px) {
+  .accent-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
 
 /* ===============================================================
  * === Mobile & Tablet Styles ====================================
