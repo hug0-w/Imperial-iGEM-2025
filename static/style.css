@@ -654,3 +654,9 @@ h1, h2, h3 {
     height: 100%;
     border: none; 
 }
+
+@media (max-width: 768px) {
+  .pdf-container {
+    width: 100%;
+  }
+}
