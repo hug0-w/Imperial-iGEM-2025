@@ -90,6 +90,8 @@ h1, h2, h3 {
     background-color: #F2F2F0;    
 }
 
+
+
 .is-transparent {
     background-color: transparent;
     clip-path: none;
@@ -111,7 +113,28 @@ h1, h2, h3 {
 .page-section p {
     max-width: auto;
     margin: 0 auto;
+    font-size: 18pt;
 }
+
+
+.page-section-deep-gray {
+    padding: 2rem 20px;
+    text-align: center;
+    min-height: auto;
+    clip-path: polygon(30px 0%, 100% 0%, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+    background-color: #333333;   
+
+}
+
+.page-section-deep-gray h2,
+
+.page-section-deep-gray p {
+    color: #FFFFFF; 
+    font-size: 18pt;
+}
+
+
+
 
 .section-image {
     max-width: 80%;
@@ -129,23 +152,34 @@ h1, h2, h3 {
 
 .tagline {
     font-family: var(--font-family-headings);
-    font-weight: 400;
-    font-size: 32pt;
+    font-weight: 500;
+    font-size: 36pt;
     color: var(--color-foreground);
     text-shadow: none;
     margin-bottom: 1.5rem;
     text-align: left;
     max-width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    line-height: 1.1;
 }
 
 .tagline span {
-    background-color: #FFF75C;
+    background-color: transparent;
     padding: 0.1em 0.4em;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+}
+
+
+
+.tagline-yellow span {
+  background-color: #FFF75C; 
+}
+
+
+.tagline-transparent span {
+    background-color: transparent;
 }
 
 .tagline-lime-green span {
@@ -164,7 +198,45 @@ h1, h2, h3 {
   background-color: #FF8B00; 
 }
 
+.tagline-subline {
+    font-family: var(--font-family-headings);
+    font-weight: 400;
+    font-size: 30pt;
+    color: var(--color-foreground);
+    text-shadow: none;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: auto;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    line-height: 1.1;
+}
 
+.tagline-subline span {
+    background-color: transparent;
+    padding: 0.1em 0.4em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+
+.tagline-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end; 
+    gap: 1rem; 
+}
+
+.tagline-staggered {
+    transform: translateX(5vw); 
+}
+
+.tagline-icon {
+    height: 1em; /* This makes the icon's height match the text size */
+    width: auto;
+    vertical-align: middle; /* This aligns the icon with the middle of the text */
+    margin-left: 0.5rem; /* This adds a small space between the text and the icon */
+}
 
 /* ===============================================================
  * === Header & Navigation =======================================
@@ -581,7 +653,11 @@ h1, h2, h3 {
   }
 }
 
-
+@media (max-width: 768px) {
+  .tagline-subline {
+    font-size: 8pt;
+  }
+}
 
 
 .hamburger-icon {
