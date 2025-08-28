@@ -356,7 +356,7 @@ h3 {
   list-style: none;
   display: flex;
   white-space: nowrap;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 .main-nav > ul > li > a {
