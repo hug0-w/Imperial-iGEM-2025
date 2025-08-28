@@ -345,7 +345,6 @@ h3 {
 .header-title {
   font-family: var(--font-family-headings);
   font-weight: 400;
-  /* This makes the title font size responsive */
   font-size: clamp(18pt, 2.5vw, 27pt);
   white-space: nowrap;
   transition: opacity 0.4s ease;
@@ -357,14 +356,12 @@ h3 {
   list-style: none;
   display: flex;
   white-space: nowrap;
-  /* This single line now controls all the spacing. Adjust as needed. */
   gap: 1.5rem; 
 }
 
 .main-nav > ul > li > a {
   font-family: var(--font-family-body);
   font-weight: 400;
-  /* This makes the link font size responsive, preventing stacking */
   font-size: clamp(12pt, 1.4vw, 18pt);
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
@@ -915,47 +912,44 @@ h3 {
  * === Navigation Dropdown Styles ================================
  * =============================================================== */
 
-/* Make the parent list item a positioning container */
 .main-nav li.has-dropdown {
   position: relative;
 }
 
-/* Style the dropdown menu itself */
+
 .dropdown-menu {
-  position: absolute; /* Takes the dropdown out of the normal document flow */
+  position: absolute; 
   left: 0;
-  top: 100%; /* Positions it right below the parent item */
+  top: 100%; 
   list-style: none;
   background-color: white;
   border-radius: 15px;
   padding: 0.5rem 0;
-  min-width: 200px; /* Gives the dropdown a nice width */
+  min-width: 200px; 
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  display: flex; /* Add this line */
-  flex-direction: column; /* And this line to stack items vertical
+  display: flex; 
+  flex-direction: column; 
 
-  /* Hide the dropdown by default */
+
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px); /* Gives it a slight "pop" up effect */
+  transform: translateY(10px); 
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-/* Style the links inside the dropdown */
 .dropdown-menu a {
-  display: block; /* Makes the whole area clickable */
+  display: block; 
   padding: 0rem 0.5rem;
-  font-size: 16pt; /* Adjust font size as needed */
+  font-size: 16pt; 
   color: var(--color-foreground);
-  border-bottom: none; /* Removes the underline effect from main nav */
-  text-transform: uppercase; /* As requested in your reference */
+  border-bottom: none; 
+  text-transform: uppercase; 
 }
 
 .dropdown-menu a:hover {
-  background-color: var(--color-background); /* Adds a light grey hover effect */
+  background-color: var(--color-background);
 }
 
-/* SHOW the dropdown when hovering over the parent list item */
 .main-nav li.has-dropdown:hover > .dropdown-menu {
   opacity: 1;
   visibility: visible;
