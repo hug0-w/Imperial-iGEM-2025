@@ -30,6 +30,7 @@ html {
   scroll-behavior: smooth;
 }
 
+
 body {
   background-color: var(--color-background);
   font-family: var(--font-family-body);
