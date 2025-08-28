@@ -1,29 +1,36 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- iGEM Required Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://static.igem.wiki/teams/5916/assets/images/logo-bg.webp" sizes="192x192"/>
-    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+    <link rel="shortcut icon" href="https://static.igem.wiki/teams/5916/assets/images/logo-bg.webp" sizes="192x192" />
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
 
     <!-- Adobe Fonts -->
-    <link rel="stylesheet" href="https://static.igem.wiki/teams/5916/assets/rhs4dmd.css">
+    <link rel="stylesheet" href="https://static.igem.wiki/teams/5916/assets/aqj8man.css">
 
     <!-- Custom CSS -->
     <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
 
     <title>{% block title %}{% endblock %} | Imperial - iGEM 2025</title>
 </head>
+
 <body class="{% block body_class %}{% endblock %}">
-   
+
     <canvas id="geometric-canvas"></canvas>
 
-    
+
     {% block scroll_nav %}{% endblock %}
 
     <!-- Navigation -->
-    {% include 'menu.html' %}
+
+    <div id="fixed-header-container">
+        {% include 'menu.html' %}
+    </div>
+
+    <div id="top-hover-trigger"></div>
 
     <!-- Page Content -->
     <div class="content">
@@ -35,7 +42,7 @@
 
     <!-- Animation & Scrollspy Script -->
     <script>
-        
+
         const canvas = document.getElementById('geometric-canvas');
         const ctx = canvas.getContext('2d');
         const mainHeader = document.querySelector('.main-header');
@@ -51,11 +58,11 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let x = 0; x < canvas.width; x += TILE_SIZE) {
                 const colIndex = Math.floor(x / TILE_SIZE);
-                if (!columnSpeeds[colIndex]) return; 
+                if (!columnSpeeds[colIndex]) return;
                 const verticalOffset = scrollY * SCROLL_SENSITIVITY * columnSpeeds[colIndex];
                 for (let y = 0; y < canvas.height + TILE_SIZE; y += TILE_SIZE) {
                     const opacity = (Math.sin(y * 0.01 + x * 0.01) + 1) / 2;
-                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.07})`;
+                    ctx.fillStyle = `rgba(0, 0, 0, ${opacity * 0.01})`;
                     ctx.fillRect(x, y - (verticalOffset % (canvas.height + TILE_SIZE)), TILE_SIZE - 2, TILE_SIZE - 2);
                 }
             }
@@ -76,13 +83,6 @@
             scrollY = window.pageYOffset || document.documentElement.scrollTop;
             requestAnimationFrame(drawGrid);
 
-            if (mainHeader) {
-                if (scrollY > 50) {
-                    mainHeader.classList.add('scrolled');
-                } else {
-                    mainHeader.classList.remove('scrolled');
-                }
-            }
         }
 
         window.addEventListener('resize', onResize);
@@ -97,7 +97,7 @@
             entries.forEach(entry => {
                 const id = entry.target.getAttribute('id');
                 const navLink = document.querySelector(`.scroll-nav a[href="#${id}"]`);
-                
+
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => link.classList.remove('active'));
                     if (navLink) {
@@ -105,8 +105,8 @@
                     }
                 }
             });
-        }, { 
-            rootMargin: '-50% 0px -50% 0px' 
+        }, {
+            rootMargin: '-50% 0px -50% 0px'
         });
 
         sections.forEach(section => {
@@ -132,5 +132,41 @@
             animationObserver.observe(section);
         });
     </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+           
+            const headerContainer = document.getElementById("fixed-header-container");
+            const hoverTrigger = document.getElementById("top-hover-trigger");
+
+            if (!headerContainer || !hoverTrigger) return;
+
+            const scrollThreshold = 150;
+
+            function handleScroll() {
+                if (window.scrollY > scrollThreshold) {
+                    headerContainer.classList.add("hidden-by-scroll");
+                    hoverTrigger.style.display = "block";
+                } else {
+                    headerContainer.classList.remove("hidden-by-scroll");
+                    headerContainer.classList.remove("visible-by-hover");
+                    hoverTrigger.style.display = "none";
+                }
+            }
+
+            window.addEventListener("scroll", handleScroll);
+
+            hoverTrigger.addEventListener("mouseenter", function () {
+                headerContainer.classList.add("visible-by-hover");
+            });
+
+            headerContainer.addEventListener("mouseleave", function () {
+                headerContainer.classList.remove("visible-by-hover");
+            });
+        });
+    </script>
+
 </body>
+
 </html>
