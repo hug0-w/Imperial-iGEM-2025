@@ -302,9 +302,8 @@ h3 {
 }
 
 /* ===============================================================
- * === Header & Navigation (Original Layout Restored) ============
+ * === Header & Navigation  ===================
  * =============================================================== */
-
 
 #fixed-header-container {
   position: fixed;
@@ -312,11 +311,9 @@ h3 {
   left: 0;
   right: 0;
   z-index: 100;
-  
   background-color: transparent;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
-
 
 .main-header {
   display: flex;
@@ -324,39 +321,41 @@ h3 {
   align-items: center;
   height: var(--header-height);
   padding: 0 calc(var(--spacing-unit) * 2);
-  max-width: 90vw;
+  max-width: 85vw;
   width: 100%;
-  margin: 0 auto; 
-  z-index: 101; 
+  margin: 0 auto;
+  z-index: 101;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 1rem;
-  transform: translateX(-80px);
+  transform: translateX(-100px);
 }
 
 .logo img {
-  height: 85px; 
+  height: 85px;
   width: auto;
 }
 
 .header-title {
+  position: relative;
   font-family: var(--font-family-headings);
   font-weight: 400;
   font-size: clamp(18pt, 2.5vw, 27pt);
   white-space: nowrap;
-  transition: opacity 0.4s ease;
+  transition:  opacity 0.3s; 
   transform: translateY(-5px);
 }
+
 
 
 .main-nav > ul {
   list-style: none;
   display: flex;
   white-space: nowrap;
-  gap: 1.5rem; 
+  gap: 3rem;
 }
 
 .main-nav > ul > li > a {
@@ -365,9 +364,9 @@ h3 {
   font-size: clamp(12pt, 1.4vw, 18pt);
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: opacity 0.3s;
+ 
 }
-
 
 .main-nav a:hover {
   color: var(--color-highlight);
@@ -379,7 +378,7 @@ h3 {
 }
 
 /* ===============================================================
- * === Interactive Header Logic (The only new part) ==============
+ * === Interactive Header Logic==============
  * =============================================================== */
 
 #top-hover-trigger {
@@ -410,6 +409,7 @@ h3 {
   pointer-events: auto;
 }
 
+
 /* ===============================================================
  * === Wavy Section Dividers =====================================
  * =============================================================== */
@@ -437,41 +437,6 @@ h3 {
   display: block;
 }
 
-
-/* ===============================================================
- * ===  Navigation =======================================
- * =============================================================== */
-
- 
- 
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.main-nav a {
-  font-family: var(--font-family-body);
-  font-weight: 500;
-  font-size: 18pt;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-
-.main-nav a:hover {
-  color: var(--color-highlight);
-}
-
-.main-nav a.active {
-  border-bottom-color: var(--color-foreground);
-  color: var(--color-foreground);
-}
-
-.main-nav li {
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
-}
 
 
 .hamburger-icon {
@@ -753,7 +718,7 @@ h3 {
  * =============================================================== */
 
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   
   html {
     font-size: 14px; 
@@ -955,3 +920,5 @@ h3 {
   visibility: visible;
   transform: translateY(0);
 }
+
+
