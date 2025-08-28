@@ -136,13 +136,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-           
+
             const headerContainer = document.getElementById("fixed-header-container");
             const hoverTrigger = document.getElementById("top-hover-trigger");
 
             if (!headerContainer || !hoverTrigger) return;
 
-            const scrollThreshold = 150;
+            const scrollThreshold = 125;
 
             function handleScroll() {
                 if (window.scrollY > scrollThreshold) {
@@ -164,6 +164,36 @@
             headerContainer.addEventListener("mouseleave", function () {
                 headerContainer.classList.remove("visible-by-hover");
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          
+
+           
+            const scrollThreshold = 150; 
+
+            
+            const transformingTextElements = document.querySelectorAll('.transforming-text-container');
+
+
+            function handleTextTransform() {
+               
+                const currentScrollY = window.scrollY;
+
+              
+                if (currentScrollY > scrollThreshold) {
+                 
+                    transformingTextElements.forEach(el => el.classList.add('is-transformed'));
+                } else {
+          
+                    transformingTextElements.forEach(el => el.classList.remove('is-transformed'));
+                }
+            }
+
+
+            window.addEventListener('scroll', handleTextTransform);
         });
     </script>
 
