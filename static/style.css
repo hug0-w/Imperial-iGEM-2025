@@ -95,19 +95,19 @@ h3 {
 }
 
 .page-section {
-  padding: 20px 20px;
+  padding: 1px 20px;
   text-align: center;
   min-height: auto;
   background-color: #F2F2F0;
+  position: relative;
 }
-
 
 
 .two-column-container {
   display: flex;
   align-items: left;
   width: 100%;
-  gap: 40px;
+  gap: 10px;
 }
 
 .column-left,
@@ -210,6 +210,11 @@ h3 {
 .image-aligner-right {
   display: flex;
   justify-content: flex-end;
+}
+
+.image-aligner-center {
+  display: flex;
+  justify-content: center;
 }
 
 .hero-logo {
