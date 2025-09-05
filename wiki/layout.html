@@ -205,13 +205,13 @@
 
             const animateChart = (container) => {
                 const rows = container.querySelectorAll('.chart-row');
-                const maxValue = 62; 
+                const maxValue = 62;
 
                 rows.forEach(row => {
                     const value = parseFloat(row.dataset.value);
                     const bar = row.querySelector('.chart-bar');
                     if (bar && value) {
-   
+
                         const width = (value / maxValue) * 100;
                         bar.style.width = `${width}%`;
                     }
@@ -222,16 +222,56 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         animateChart(entry.target);
-                    
+
                         observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.5 
+                threshold: 0.5
             });
 
             chartContainers.forEach(container => {
                 chartObserver.observe(container);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll('.stat-number');
+            if (counters.length === 0) return;
+
+            const animateValue = (element, start, end, duration) => {
+                let startTime = null;
+                const step = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const currentValue = Math.floor(progress * (end - start) + start);
+
+    
+                    element.innerText = currentValue.toLocaleString('en-US');
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const targetValue = parseFloat(counter.dataset.target);
+                        animateValue(counter, 0, targetValue, 6500); 
+                        observer.unobserve(counter);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
             });
         });
     </script>
