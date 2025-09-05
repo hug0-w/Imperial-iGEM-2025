@@ -169,31 +169,70 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-          
 
-           
-            const scrollThreshold = 100; 
 
-            
+
+            const scrollThreshold = 100;
+
+
             const transformingTextElements = document.querySelectorAll('.transforming-text-container');
 
 
             function handleTextTransform() {
-               
+
                 const currentScrollY = window.scrollY;
 
-              
+
                 if (currentScrollY > scrollThreshold) {
-                 
+
                     transformingTextElements.forEach(el => el.classList.add('is-transformed'));
                 } else {
-          
+
                     transformingTextElements.forEach(el => el.classList.remove('is-transformed'));
                 }
             }
 
 
             window.addEventListener('scroll', handleTextTransform);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const chartContainers = document.querySelectorAll('.data-viz-container');
+
+            if (chartContainers.length === 0) return;
+
+            const animateChart = (container) => {
+                const rows = container.querySelectorAll('.chart-row');
+                const maxValue = 62; 
+
+                rows.forEach(row => {
+                    const value = parseFloat(row.dataset.value);
+                    const bar = row.querySelector('.chart-bar');
+                    if (bar && value) {
+   
+                        const width = (value / maxValue) * 100;
+                        bar.style.width = `${width}%`;
+                    }
+                });
+            };
+
+            const chartObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateChart(entry.target);
+                    
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5 
+            });
+
+            chartContainers.forEach(container => {
+                chartObserver.observe(container);
+            });
         });
     </script>
 

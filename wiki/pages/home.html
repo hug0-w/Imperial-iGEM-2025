@@ -7,6 +7,7 @@
 {% block page_content %}
 
 
+
 <div class="page-section is-transparent" id="hero-section">
 
   <div class="hero-columns">
@@ -25,13 +26,14 @@
 
 
         <div class="text-final">
-          <h3 class="tagline-subline tagline-subline-bold tagline-transparent" style="text-align: right;"><span></span></h3>
+          <h3 class="tagline-subline tagline-subline-bold tagline-transparent" style="text-align: right;"><span></span>
+          </h3>
         </div>
       </div>
 
       <div class="image-aligner-left">
-        <img src="https://static.igem.wiki/teams/5916/assets/images/lab1.webp" alt="Lab" class="section-image"
-          style="margin-top: 5%; margin-bottom: -40%; max-width: 60%;">
+        <img src="https://static.igem.wiki/teams/5916/assets/images/lab2.webp" alt="Lab" class="section-image"
+          style="margin-top: 5%; margin-bottom: -20%; max-width: 85%;">
       </div>
 
     </div>
@@ -83,11 +85,12 @@
 
     <div class="column-left">
 
-      <div class="spacer15"></div>
+      <div class="spacer10"></div>
 
       <h3 class="tagline-subline tagline-subline-no-wrap animate-on-scroll" style="color: #FAF067; text-align: start;">
         <span>THE ONGOING
-          PROBLEM</span></h3>
+          PROBLEM</span>
+      </h3>
 
       <div class="spacer3"></div>
 
@@ -119,7 +122,8 @@
 
       <h3 class="tagline-subline tagline-subline-no-wrap animate-on-scroll" style="color: #D6FF36; text-align: start;">
         <span>FAILED
-          PROMISE</span></h3>
+          PROMISE</span>
+      </h3>
 
       <h3 class="tagline-subline tagline-subline-lime-green tagline-subline-no-wrap animate-on-scroll"
         style="color: #000000; text-align: center;"><span>Cultivated Meat</span></h3>
@@ -132,7 +136,8 @@
 
       <h3 class="tagline-subline tagline-subline-no-wrap animate-on-scroll" style="color: #ffffff; text-align: center;">
         <span>BUT WHERE IS
-          THE SOLUTION?</span></h3>
+          THE SOLUTION?</span>
+      </h3>
 
     </div>
 
@@ -187,21 +192,18 @@
 
 <!-- Science -->
 
-<div class="page-section animate-on-scroll" id="Science" style="margin-top: 0rem; margin-bottom: 0rem;">
 
-  <div class="two-column-container" style="margin-top: 0rem; margin-bottom: 0rem;">
+
+<div class="page-section " id="Science" style="margin-top: 0rem; margin-bottom: 0rem;">
+
+  <div class="two-column-container" style="margin-top: 0rem; margin-bottom: -0.5vw;">
 
     <div class="column-left">
-
-      <div class="image-aligner-left">
+      <div class="image-aligner-left" style="height: 100%;">
         <img src="https://static.igem.wiki/teams/5916/assets/images/cage.webp" alt="Cage" class="section-image-large"
-          style="margin-top: -1.5%; margin-bottom: -1.5%;">
+          style="height: 100%; width: 100%; object-fit: cover; margin-top: -0.5%; ">
       </div>
-
-
-
     </div>
-
 
 
 
@@ -215,7 +217,8 @@
 
       <div class="spacer3"></div>
 
-      <p style="text-align: left;">Scaling cultivated meat is impossible while recombinant growth factors make up 75% of
+      <p style="text-align: left;">Scaling cultivated meat is impossible while recombinant growth factors make up 75%
+        of
         media costs.</p>
 
       <div class="spacer3"></div>
@@ -225,10 +228,76 @@
 
       <div class="spacer3"></div>
 
-      <p style="text-align: left;">To break this bottleneck, we have engineered a solution using Pichia pastoris as our
+      <p style="text-align: left;">To break this bottleneck, we have engineered a solution using Pichia pastoris as
+        our
         expression chassis.</p>
 
+      <div class="data-viz-container animate-on-scroll">
+        <h3 class="tagline-subline" style="text-align: center;">Cost of Production (/kg)</h3>
 
+        <div class="data-viz-bar-chart">
+          <div class="chart-row" data-value="25">
+            <div class="chart-label">
+              <span class="retailer">Tesco</span>
+              <span class="cut">Finest Beef Rump Steak</span>
+            </div>
+            <div class="chart-bar-container">
+              <div class="chart-bar">
+                <span class="price">£25</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-row" data-value="20">
+            <div class="chart-label">
+              <span class="retailer">Sainsbury's</span>
+              <span class="cut">British Mature Rump Steak</span>
+            </div>
+            <div class="chart-bar-container">
+              <div class="chart-bar">
+                <span class="price">£20</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-row" data-value="62">
+            <div class="chart-label">
+              <span class="retailer">Waitrose</span>
+              <span class="cut">Premium Fillet Medallions</span>
+            </div>
+            <div class="chart-bar-container">
+              <div class="chart-bar">
+                <span class="price">£62</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-row" data-value="28">
+            <div class="chart-label">
+              <span class="retailer">Broader UK</span>
+              <span class="cut">Sirloin / Ribeye / Fillet</span>
+            </div>
+            <div class="chart-bar-container">
+              <div class="chart-bar">
+                <span class="price">£25-30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-row is-hero" data-value="55">
+            <div class="chart-label">
+              <span class="retailer">Cultivated Meat</span>
+              <span class="cut">Current Best Estimate (cite)</span>
+            </div>
+            <div class="chart-bar-container">
+              <div class="chart-bar">
+                <span class="price">~£55</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
 
 
@@ -238,32 +307,39 @@
   </div>
 </div>
 
-
-
-
-<div class="page-section-deep-gray animate-on-scroll" style="margin-top: 0rem;">
-
+<div class="page-section-deep-gray" style="margin-top: 0rem">
   <div class="two-column-container">
-
     <div class="column-left">
+      <h3 class="tagline-subline" style="color: #FAF067; text-align: left;">
+        <span>OUR SOLUTION</span>
+      </h3>
 
-      <h3 class="tagline-subline tagline-subline-no-wrap" style="color: #FAF067; text-align: center;"><span>OUR
-          SOLUTION</span></h3>
+      <div class="spacer3"></div>
 
+      <h2 class="solution-headline">WE HAVE ELIMINATED THAT BARRIER</h2>
+      <p class="solution-intro">
+        Meet our Hero: <span class="highlight-yellow">MANNOLess</span>
+      </p>
+      <p style="text-align: left; color: #FFFFFF; font-size: 1.1rem; max-width: 450px;">
+        Genetically rewires <i>Pichia's</i> naturally inefficient sugar production pathways.
+      </p>
+
+      <ul class="benefit-list stagger-children animate-on-scroll">
+        <li>Boosting target protein yield</li>
+        <li>Easing processing</li>
+        <li>Unlocking industrial-scale manufacturing</li>
+      </ul>
     </div>
 
     <div class="column-right">
-
+      <div class="spacer3"></div>
       <div class="image-aligner-right">
-        <img src="https://static.igem.wiki/teams/5916/assets/images/pichia-pastoris.webp" alt="Lab"
-          class="section-image" style="margin-top: 5%; margin-bottom: 0%; max-width: 60%;">
+        <img src="https://static.igem.wiki/teams/5916/assets/images/pichia-pastoris.webp" alt="pichia-pastoris"
+          class="section-image" style="max-width: 80%; position: relative; transform: rotate(25deg);">
       </div>
-
-
-
     </div>
-
   </div>
+</div>
 
 
 

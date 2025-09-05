@@ -354,7 +354,7 @@ h3 {
   height: 10vw;
 }
 
-.space7 { 
+.space7 {
   height: 7vw;
 }
 
@@ -1037,4 +1037,199 @@ h3 {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+
+/* ===============================================================
+ * === Data-Viz Bar Chart Styles =================================
+ * =============================================================== */
+
+.data-viz-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  font-family: var(--font-family-body);
+}
+
+.data-viz-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.chart-label {
+  text-align: right;
+  color: var(--color-muted);
+}
+
+.chart-label .retailer {
+  display: block;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-headings);
+  color: var(--color-foreground);
+  font-size: 1.2rem;
+}
+
+.chart-label .cut {
+  font-size: 0.9rem;
+}
+
+.chart-bar-container {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  background-color: var(--color-muted);
+  width: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  color: #fff;
+  white-space: nowrap;
+  transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+}
+
+.chart-row.is-hero .chart-bar {
+  background-color: #00C8FF;
+
+}
+
+.chart-row.is-hero .chart-label .retailer {
+  color: #00C8FF;
+}
+
+.price {
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1rem;
+  opacity: 0;
+
+  transform: translateX(-10px);
+  transition: opacity 0.5s ease 0.8s, transform 0.5s ease 0.8s;
+
+}
+
+
+.data-viz-container.is-visible .chart-bar {
+ 
+}
+
+.data-viz-container.is-visible .price {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* ===============================================================
+ * ===  Solution Section Styles ============================
+ * =============================================================== */
+
+.solution-headline {
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.5rem); 
+    color: #FFFFFF;
+    line-height: 1.1;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.solution-intro {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.highlight-yellow {
+    background-color: #FFF75C;
+    color: var(--color-foreground);
+    padding: 0.1em 0.4em;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-headings);
+}
+
+.benefit-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.benefit-list li {
+    font-family: var(--font-family-headings);
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-left: 2.5rem; 
+    position: relative;
+    text-transform: uppercase;
+}
+
+.benefit-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #8AFF7B; 
+    clip-path: polygon(0% 50%, 25% 0%, 100% 0%, 100% 100%, 25% 100%, 0 50%);
+}
+
+
+/* ===============================================================
+ * ===Stagger Animation =========================
+ * =============================================================== */
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.stagger-children > * {
+  opacity: 0;
+}
+
+
+.stagger-children.is-visible > * {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+
+.stagger-children.is-visible > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.stagger-children.is-visible > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.stagger-children.is-visible > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.stagger-children.is-visible > *:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.stagger-children.is-visible > *:nth-child(5) {
+  animation-delay: 1.0s;
 }
