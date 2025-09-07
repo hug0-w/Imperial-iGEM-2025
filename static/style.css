@@ -128,7 +128,7 @@ h3 {
 #hero-section {
   max-width: 85vw;
   padding-top: 0.25rem;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
 }
