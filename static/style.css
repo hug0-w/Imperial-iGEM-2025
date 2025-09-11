@@ -91,7 +91,7 @@ h3 {
 
 .page-title {
   text-align: center;
-  font-size: clamp(2.5rem, 10vw, 80pt);
+  font-size: clamp(2.5rem, 4vw, 50pt);
 }
 
 .page-section {
@@ -107,7 +107,7 @@ h3 {
   display: flex;
   align-items: left;
   width: 100%;
-  gap: 10px;
+  gap: 0.1px;
 }
 
 .column-left,
@@ -128,7 +128,7 @@ h3 {
 #hero-section {
   max-width: 85vw;
   padding-top: 0.25rem;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -137,7 +137,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 5px;
+  gap: 8px;
 }
 
 .hero-column-left,
@@ -309,6 +309,10 @@ h3 {
   background-color: #D6FF36;
 }
 
+.tagline-subline-yellow span {
+  background-color: #FAF067;
+}
+
 .tagline-subline-bold {
   font-weight: 600;
 }
@@ -434,20 +438,20 @@ h3 {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.25rem;
   transform: translateX(-100px);
 }
 
 .logo img {
-  height: 85px;
+  height: 100px;
   width: auto;
 }
 
 .header-title {
   position: relative;
   font-family: var(--font-family-headings);
-  font-weight: 400;
-  font-size: clamp(18pt, 2.5vw, 27pt);
+  font-weight: 600;
+  font-size: clamp(15pt, 2vw, 20pt);
   white-space: nowrap;
   transition: opacity 0.1s ease-out;
   transform: translateY(-5px);
@@ -1125,7 +1129,9 @@ h3 {
 }
 
 
-.data-viz-container.is-visible .chart-bar {}
+.data-viz-container.is-visible .chart-bar {
+  color: none
+}
 
 .data-viz-container.is-visible .price {
   opacity: 1;
@@ -1235,14 +1241,14 @@ h3 {
 
 .stat-container {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 0.25rem 1rem;
 }
 
 .stat-title {
   font-family: var(--font-family-headings);
   font-weight: 600;
   font-size: 25pt;
-  color: var(--color-foreground);
+  color: #FFFFFF;
   text-shadow: none;
   text-align: center;
   max-width: auto;
@@ -1255,9 +1261,10 @@ h3 {
   font-family: var(--font-family-headings);
   font-weight: 600;
   font-size: clamp(8pt, 30pt, 40pt);
-  color: var(--color-foreground);
+  color: #FFFFFF;
   line-height: 1;
-  margin: 1rem 0;
+  margin: 0.1rem 0;
+  text-align: left;
 }
 
 .stat-label {
@@ -1274,4 +1281,94 @@ h3 {
   margin-left: calc(50% - 30vw);
   width: 50vw;
   max-width: none; 
+}
+
+.bleed-right {
+  width: calc(100% + (100vw - var(--content-max-width)) / 2);
+  margin-right: calc((100vw - var(--content-max-width)) / -2);
+  height: 25vw;
+  object-fit: cover;
+}
+
+
+/* ===============================================================
+ * === Dropdown Menu Icons =====================================
+ * =============================================================== */
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center; 
+  gap: 0.75rem;    
+  padding: 0.5rem 1rem; 
+}
+
+.nav-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ===============================================================
+ * === Mobile Orientation Overlay ================================
+ * =============================================================== */
+
+#orientation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(20, 20, 20, 0.95);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.orientation-message {
+  padding: 2rem;
+}
+
+.orientation-message p {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  max-width: 300px;
+}
+
+.phone-icon {
+  width: 60px;
+  height: 100px;
+  border: 3px solid #FFFFFF;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: relative;
+  animation: rotate-animation 1.5s ease-in-out infinite;
+}
+
+.phone-icon::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes rotate-animation {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(90deg); }
+  100% { transform: rotate(90deg); }
+}
+
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  #orientation-overlay {
+    display: flex;
+  }
 }

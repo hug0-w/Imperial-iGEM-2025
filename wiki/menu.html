@@ -14,15 +14,22 @@
             <li class="has-dropdown">
                 <a href="#">PROJECT</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('pages', page='Problem') }}">DESCRIPTION</a></li>
+                    <li><a href="{{ url_for('pages', page='Problem') }}">
+                            <img src="https://static.igem.wiki/teams/5916/assets/icons/enginnering40px.webp"
+                                class="nav-icon-img" alt="Contribution Icon"><span>DESCRIPTION</span></a></li>
                     <li><a href="{{ url_for('pages', page='Description') }}">ENGINEERING</a></li>
                     <li><a href="{{ url_for('pages', page='Results') }}">RESULTS</a></li>
                     <li><a href="{{ url_for('pages', page='Engineering') }}">ENGINEERING</a></li>
                     <li><a href="{{ url_for('pages', page='contribution') }}">CONTRIBUTION</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url_for('pages', page='wet-lab') }}">WET LAB</a></li>
-            <li><a href="{{ url_for('pages', page='dry-lab') }}">DRY LAB</a></li>
+            <li class="has-dropdown">
+                <a href="#"> LAB</a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ url_for('pages', page='wet-lab') }}"><span>Wet Lab</span></a></li>
+                <li><a href="{{ url_for('pages', page='dry-lab') }}"><span>Dry Lab</span></a></li>
+            </ul>
+            <li><a href="{{ url_for('pages', page='dry-lab') }}">ProcEng</a></li>
             <li><a href="{{ url_for('pages', page='education') }}">EDUCATION</a></li>
             <li><a href="{{ url_for('pages', page='human-practices') }}">HP</a></li>
             <li><a href="{{ url_for('pages', page='team') }}">TEAM</a></li>
