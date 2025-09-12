@@ -1160,8 +1160,8 @@ h3 {
   text-align: left;
 }
 
-.highlight-yellow {
-  background-color: #FFF75C;
+.highlight-green {
+  background-color: #8AFF7B;
   color: var(--color-foreground);
   padding: 0.1em 0.4em;
   font-weight: var(--font-weight-bold);
@@ -1206,6 +1206,7 @@ h3 {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1213,24 +1214,27 @@ h3 {
 }
 
 
-.stagger-children > * {
+.stagger-children>* {
   opacity: 0;
 }
 
-.stagger-children.animate-on-scroll.is-visible > * {
+.stagger-children.animate-on-scroll.is-visible>* {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.stagger-children.animate-on-scroll.is-visible > *:nth-child(1) {
+.stagger-children.animate-on-scroll.is-visible>*:nth-child(1) {
   animation-delay: 0.2s;
 }
-.stagger-children.animate-on-scroll.is-visible > *:nth-child(2) {
+
+.stagger-children.animate-on-scroll.is-visible>*:nth-child(2) {
   animation-delay: 0.4s;
 }
-.stagger-children.animate-on-scroll.is-visible > *:nth-child(3) {
+
+.stagger-children.animate-on-scroll.is-visible>*:nth-child(3) {
   animation-delay: 0.6s;
 }
-.stagger-children.animate-on-scroll.is-visible > *:nth-child(4) {
+
+.stagger-children.animate-on-scroll.is-visible>*:nth-child(4) {
   animation-delay: 0.8s;
 }
 
@@ -1280,7 +1284,7 @@ h3 {
 
   margin-left: calc(50% - 30vw);
   width: 50vw;
-  max-width: none; 
+  max-width: none;
 }
 
 .bleed-right {
@@ -1297,9 +1301,9 @@ h3 {
 
 .dropdown-menu a {
   display: flex;
-  align-items: center; 
-  gap: 0.75rem;    
-  padding: 0.5rem 1rem; 
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
 }
 
 .nav-icon-img {
@@ -1361,9 +1365,17 @@ h3 {
 }
 
 @keyframes rotate-animation {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(90deg); }
-  100% { transform: rotate(90deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(90deg);
+  }
 }
 
 
@@ -1373,4 +1385,75 @@ h3 {
   }
 }
 
+/* ===============================================================
+ * === Feature Card Styles =======================================
+ * =============================================================== */
 
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 90vw;
+  margin: 0.5rem auto;
+  padding: 0 2rem;
+}
+
+.feature-card {
+  background-color: #333333;
+  padding: 0rem 1.5rem;
+  border-radius: var(--bs-border-radius-lg);
+  text-align: center;
+  color: #FFFFFF;
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.feature-card.stagger-down {
+  margin-top: 0.1rem;
+}
+
+.feature-icon {
+  width: 20vw; 
+  max-width: 50vw; 
+  min-width: 80px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.feature-title {
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+
+}
+
+.feature-link {
+  padding-top: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #FAF067;
+  transition: letter-spacing 0.3s ease, color 0.3s ease;
+  align-self: center;
+}
+
+.feature-link:hover {
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 991px) {
+  .feature-card.stagger-down {
+    margin-top: 0;
+  }
+
+  .feature-grid {
+    margin-top: 3rem;
+  }
+}
