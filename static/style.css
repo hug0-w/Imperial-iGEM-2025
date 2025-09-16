@@ -78,9 +78,9 @@ h3 {
 }
 
 .width-75 {
-    width: 75vw;
-    margin-left: auto; 
-    margin-right: auto; 
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -108,6 +108,8 @@ h3 {
   background-color: #F2F2F0;
   position: relative;
 }
+
+
 
 .is-white {
   background-color: #FFFFFF;
@@ -158,12 +160,6 @@ h3 {
   align-items: center;
 }
 
-
-
-
-.page-section:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
 
 .page-section.is-transparent:not(:last-child) {
   border-bottom: none;
@@ -319,6 +315,15 @@ h3 {
 .tagline-subline-yellow span {
   background-color: #FAF067;
 }
+
+.tagline-subline-sky-blue span {
+  background-color: #00C8FF;
+}
+
+.tagline-subline-orange span {
+  background-color: #FF8B00;
+}
+
 
 .tagline-subline-bold {
   font-weight: 600;
@@ -617,21 +622,22 @@ h3 {
   transform: translateX(-10px);
   transition: all 0.3s ease;
 }
+
 .scroll-nav a::after {
   content: '';
   display: block;
-  width: 30px; 
+  width: 30px;
   height: 2px;
   background-color: var(--color-muted);
   transition: all 0.3s ease;
 }
 
 .scroll-nav a:hover::after {
-  background-color: #000000; 
+  background-color: #000000;
 }
 
 .scroll-nav a.active::after {
-  background-color: var(--color-foreground); 
+  background-color: var(--color-foreground);
 }
 
 .scroll-nav a.active span,
@@ -808,6 +814,10 @@ h3 {
   background-color: #00C8FF;
 }
 
+.accent-btn.btn-orange {
+  background-color: #FF8B00;
+}
+
 .button-row {
   display: flex;
   flex-direction: column;
@@ -948,61 +958,63 @@ h3 {
  * === Education Page Styles ============================
  * =============================================================== */
 
- .education-hero {
-    background-image: url('https://static.igem.wiki/teams/5916/education/edu-banner.webp');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 0rem;
-    display: flex;
+.education-hero {
+  background-image: url('https://static.igem.wiki/teams/5916/education/edu-banner.webp');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0rem;
+  display: flex;
 }
 
 .education-hero-content-container {
-    max-width: 85vw;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 2rem;
-    position: relative;
-    z-index: 2;
+  max-width: 85vw;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .education-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .education-hero .education-hero-content-container h1 {
-    font-size: 4rem;
-    margin: 0;
-    font-family: var(--font-family-headings);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #FFFFFF !important;
+  font-size: 4rem;
+  margin: 0;
+  font-family: var(--font-family-headings);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FFFFFF !important;
 }
 
 @media (max-width: 768px) {
-    .education-hero {
-        height: 300px;
-    }
-    .education-hero-content-container {
-        max-width: 90vw;
-    }
-    .education-hero h1 {
-        font-size: 2.5rem;
-    }
+  .education-hero {
+    height: 300px;
+  }
+
+  .education-hero-content-container {
+    max-width: 90vw;
+  }
+
+  .education-hero h1 {
+    font-size: 2.5rem;
+  }
 }
 
 
@@ -1040,6 +1052,69 @@ h3 {
 }
 
 
+.carousel-inner {
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.carousel-indicators {
+  position: static;
+  margin: 0;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.carousel-indicators button {
+  width: 15%;
+  height: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 0;
+  text-indent: 0;
+  background-color: transparent;
+}
+
+.carousel-indicators button.active,
+.carousel-indicators button:hover {
+  opacity: 1;
+  border-color: var(--color-foreground);
+}
+
+.carousel-indicators button img {
+  border-radius: 3px;
+  width: 100%;
+}
+
+
+
+#webtoonCarousel .carousel-item img {
+    max-height: 35vw; 
+    width: auto;    
+    margin: 0 auto;  
+}
+
+
+@media (max-width: 767.98px) {
+  .carousel-indicators {
+    position: absolute;
+    bottom: -20px;
+  }
+
+  .carousel-indicators button {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border: 0;
+    opacity: 0.5;
+  }
+
+  .carousel-indicators button.active {
+    opacity: 1;
+  }
+}
 
 /* ===============================================================
  * === PDF Embed Styles ==========================================
@@ -1486,8 +1561,8 @@ h3 {
 }
 
 .feature-icon {
-  width: 20vw; 
-  max-width: 50vw; 
+  width: 20vw;
+  max-width: 50vw;
   min-width: 80px;
   height: auto;
   margin-bottom: 0.5rem;
@@ -1525,4 +1600,3 @@ h3 {
     margin-top: 3rem;
   }
 }
-

@@ -11,6 +11,8 @@
     <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://static.igem.wiki/teams/5916/assets/aqj8man.css">
 
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
 
@@ -43,6 +45,9 @@
     <div class="content">
         {% block page_content %}{% endblock %}
     </div>
+
+
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
 
     <!-- Footer -->
     {% include 'footer.html' %}
