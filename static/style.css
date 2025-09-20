@@ -168,8 +168,10 @@ h3 {
 .page-section p {
   max-width: 85vw;
   margin: 0 auto;
-  font-size: clamp(12pt,16pt,19pt);
+  font-size: 18pt;
 }
+
+
 
 
 .page-section-deep-gray {
@@ -417,8 +419,26 @@ h3 {
   font-weight: 600;
 }
 
+.coloured-block {
+  background-color: #FFF75C;
+  color: white;
+  width: 100%;
+  padding: 4rem;
+  border-radius: 0px;
+  text-align: center;
+}
 
+.coloured-block-lime-green {
+  background-color: #D6FF36;
+}
 
+.padding2 {
+  padding: 2rem
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
 
 /* ===============================================================
  * === Header & Navigation  ===================
@@ -591,7 +611,7 @@ h3 {
   position: fixed;
   left: 2rem;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(50%);
   z-index: 100;
 }
 
@@ -626,7 +646,7 @@ h3 {
 .scroll-nav a::after {
   content: '';
   display: block;
-  width: 30px;
+  width: 10px;
   height: 2px;
   background-color: var(--color-muted);
   transition: all 0.3s ease;
@@ -647,12 +667,12 @@ h3 {
 }
 
 .scroll-nav a:hover::after {
-  width: 40px;
+  width: 15px;
   background-color: #000000;
 }
 
 .scroll-nav a.active::after {
-  width: 40px;
+  width: 15px;
   background-color: var(--color-foreground);
 }
 
@@ -828,14 +848,14 @@ h3 {
 
 
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .accent-btn {
     font-size: 0.6rem;
     padding: 0.6rem 1.5rem;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .button-row {
     flex-direction: column;
     align-items: center;
@@ -847,15 +867,38 @@ h3 {
  * === Mobile & Tablet Styles ====================================
  * =============================================================== */
 
+@media (max-width: 1300px) {
+  .page-section p {
+    font-size: 14pt;
+  }
 
-@media (max-width: 1000px) {
+  .tagline-subline {
+    font-size: 22pt;
+  }
+
+  .scroll-nav a {
+    font-size: 8pt;
+  }
+
+  .education-hero {
+    max-height: 200px;
+  }
+
+  .feature-card p {
+    font-size: 12pt;
+  }
+
+}
+
+
+@media (max-width: 768px) {
 
   html {
-    font-size: 10pt;
+    font-size: 14px;
   }
 
   .content {
-    max-width: 85vw;
+    max-width: 75vw;
   }
 
   .tagline {
@@ -872,18 +915,36 @@ h3 {
     font-size: 1rem;
   }
 
-
+  .hero-columns {
+    flex-direction: column;
+    gap: rem;
+  }
 
   .hero-logo {
     max-width: 70%;
   }
 
 
- 
+
+  .two-column-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+
+  .tagline-row {
+    justify-content: center;
+  }
+
   .section-image-large {
     width: 60%;
   }
 
+  .tagline-row h3,
+  .column-right p,
+  .column-left p {
+    text-align: center !important;
+  }
 
   :root {
     --header-height: 80px;
@@ -899,7 +960,7 @@ h3 {
   }
 
   .header-title {
-    font-size: 5pt;
+    font-size: 10pt;
   }
 
   .main-nav a {
@@ -910,25 +971,16 @@ h3 {
   .main-nav ul {
     gap: 0.1rem;
   }
-}
-
-.hamburger-icon {
-  display: none;
-}
-
-.menu-text {
-  display: inline;
-}
 
 
-@media (max-width: 768px) {
-  .menu-text {
+  .hamburger-icon {
     display: none;
   }
 
-  .hamburger-icon {
-    display: flex;
+  .menu-text {
+    display: inline;
   }
+
 }
 
 /* ===============================================================
@@ -1068,9 +1120,9 @@ h3 {
 
 
 #webtoonCarousel .carousel-item img {
-    max-height: 35vw; 
-    width: auto;    
-    margin: 0 auto;  
+  max-height: 35vw;
+  width: auto;
+  margin: 0 auto;
 }
 
 
@@ -1551,7 +1603,7 @@ h3 {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   margin-bottom: 1rem;
   text-transform: uppercase;
-
+  text-align: left;
 }
 
 .feature-link {
@@ -1576,4 +1628,24 @@ h3 {
   .feature-grid {
     margin-top: 3rem;
   }
+}
+
+/* ===============================================================
+ * === Rotating Image Animation ==================================
+ * =============================================================== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-image {
+  animation: spin 8s linear infinite;
+  width: 150px;
+  height: auto;
 }
