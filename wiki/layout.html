@@ -288,6 +288,19 @@
         });
     </script>
 
+    <script>
+        function adjustForScrollbar() {
+            const mainHeader = document.querySelector('.main-header');
+            if (mainHeader) {
+                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+                mainHeader.style.paddingLeft = `calc(2rem + ${scrollbarWidth}px)`;
+            }
+        }
+
+        window.addEventListener('resize', adjustForScrollbar);
+        adjustForScrollbar();
+    </script>
+
 </body>
 
 </html>
