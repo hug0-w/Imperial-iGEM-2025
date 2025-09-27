@@ -217,7 +217,7 @@ h3 {
 
 .image-aligner-right {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .image-aligner-center {
@@ -257,7 +257,7 @@ h3 {
 
 
 
-.tagline-yellow span {
+.span-yellow span {
   background-color: #FFF75C;
 }
 
@@ -266,7 +266,7 @@ h3 {
   background-color: transparent;
 }
 
-.tagline-lime-green span {
+.span-lime-green span {
   background-color: #D6FF36;
 }
 
@@ -274,11 +274,11 @@ h3 {
   background-color: #8AFF7B;
 }
 
-.tagline-sky-blue span {
+.span-sky-blue span {
   background-color: #00C8FF;
 }
 
-.tagline-orange span {
+.span-orange span {
   background-color: #FF8B00;
 }
 
@@ -430,6 +430,12 @@ h3 {
 
 .coloured-block-lime-green {
   background-color: #D6FF36;
+}
+.coloured-block-orange {
+  background-color: #FF8B00;
+}
+.coloured-block-sky-blue {
+  background-color: #00C8FF;
 }
 
 .padding2 {
@@ -653,11 +659,12 @@ h3 {
 }
 
 .long-animate {
- transition: opacity 4s ease-out, transform 4s ease-out;
+  transition: opacity 4s ease-out, transform 4s ease-out;
 }
 
 /* --- Slide-in Animations --- */
-.animate-slide-left, .animate-slide-right {
+.animate-slide-left,
+.animate-slide-right {
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -670,7 +677,8 @@ h3 {
   transform: translateX(50px);
 }
 
-.animate-slide-left.is-visible, .animate-slide-right.is-visible {
+.animate-slide-left.is-visible,
+.animate-slide-right.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
@@ -679,7 +687,8 @@ h3 {
   opacity: 0;
   clip-path: inset(0 100% 0 0);
   transition: opacity 0.8s ease-out, clip-path 1s cubic-bezier(0.23, 1, 0.32, 1);
-  transition-delay: 0.2s; /* Optional: adds a slight delay before starting */
+  transition-delay: 0.2s;
+  /* Optional: adds a slight delay before starting */
 }
 
 .animate-mask-reveal.is-visible {
@@ -779,7 +788,8 @@ h3 {
 }
 
 .attributions-content p {
-  margin-top: 1rem; /* Add space when content is visible */
+  margin-top: 1rem;
+  /* Add space when content is visible */
 }
 
 /* -- Active State -- */
@@ -793,13 +803,14 @@ h3 {
 }
 
 .attributions-dropdown.open .attributions-content {
-  max-height: 500px; /* A large value to allow content to expand */
+  max-height: 500px;
+  /* A large value to allow content to expand */
   padding: 0.5rem 1rem 1rem 1rem;
 }
 
 
 .team-page-wide .content {
-  max-width: 1100px;
+  max-width: 800px;
 }
 
 
@@ -1017,6 +1028,10 @@ h3 {
   background-image: none;
 }
 
+.team-banner {
+  background-image: url("https://static.igem.wiki/teams/5916/assets/images/team/team-banner.webp");
+}
+
 .education-hero-content-container {
   max-width: 85vw;
   width: 100%;
@@ -1100,7 +1115,8 @@ h3 {
 
 .simple-carousel {
   position: relative;
-  width: 100%; /* Make it fill the container it's in */
+  width: 100%;
+  /* Make it fill the container it's in */
 }
 
 /* This is the base image that sets the size */
@@ -1117,17 +1133,29 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures it covers the first image perfectly */
+  object-fit: cover;
+  /* Ensures it covers the first image perfectly */
   opacity: 0;
   animation: simpleFade 10s infinite;
   animation-delay: 10s;
 }
 
 @keyframes simpleFade {
-  0% { opacity: 0; }
-  25% { opacity: 1; }
-  75% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .carousel-inner {
@@ -1316,7 +1344,7 @@ h3 {
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding-right: 1rem;
   color: #fff;
   white-space: nowrap;
@@ -1680,7 +1708,7 @@ h3 {
 
 .snake-timeline {
   position: relative;
-  max-width: 95vw;
+  max-width: 100vw;
 }
 
 /* The central vertical line */
@@ -1703,6 +1731,46 @@ h3 {
   margin-bottom: 3rem;
 }
 
+
+.timeline-event-grey {
+ background-color: #333333;
+
+  box-shadow: 0 0 0 100vmax #333333;
+  clip-path: inset(0 -100vmax);
+}
+
+/* This makes sure the text inside the grey block is white and readable */
+.timeline-event-grey .timeline-content h4,
+.timeline-event-grey .timeline-content p,
+.timeline-event-grey .tagline-subline span {
+    color: #FFFFFF;
+}
+
+.timeline-event-grey::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  background-color: #FFFFFF;
+  z-index: 0;
+}
+
+/* This makes the dot white inside the grey section */
+.timeline-event-grey.timeline-event::after {
+  border-color: #FFFFFF;
+  background-color: #FFFFFF; /* Match the grey background */
+}
+
+/* This ensures the content inside the dot stays on top of the new line */
+.timeline-event-grey .event-left,
+.timeline-event-grey .event-right {
+  position: relative;
+  z-index: 1;
+}
+
 /* The dot on the timeline */
 .timeline-event::after {
   content: '';
@@ -1721,6 +1789,9 @@ h3 {
 .event-left {
   grid-column: 1;
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .event-right {
@@ -1728,20 +1799,15 @@ h3 {
   text-align: left;
 }
 
-/* General styling for ANY content inside the columns */
-.event-left > *, .event-right > * {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 
 
 
-.event-left > * {
+
+.event-left>* {
   margin-left: auto;
 }
 
-.event-right > * {
+.event-right>* {
   margin-right: auto;
 }
 
@@ -1751,10 +1817,7 @@ h3 {
   border-radius: 8px;
 }
 
-.event-left > .image-aligner-center,
-.event-right > .image-aligner-center {
-  margin: 0 auto; /* Removes the side-margin and centers the block */
-}
+
 
 /* --- Section Header --- */
 .timeline-section-header {
@@ -1790,28 +1853,166 @@ h3 {
   .snake-timeline::before {
     left: 9px;
   }
+
   .timeline-event {
     grid-template-columns: 1fr;
     padding-left: 40px;
     gap: 1rem;
   }
+
   .timeline-event::after {
     left: 9px;
   }
+
   .event-left,
   .event-right {
     grid-column: 1;
     text-align: left;
   }
-  .event-left > *, .event-right > * {
+
+  .event-left>*,
+  .event-right>* {
     margin-left: 0;
   }
+
   .timeline-section-header {
     text-align: left;
     padding-left: 40px;
   }
+
   .timeline-section-header .tagline-subline {
     padding: 0 1rem 0 0;
+  }
+}
+
+/* ===============================================================
+ * === Side Scroll ==================================
+ * =============================================================== */
+
+.side-scroll-nav {
+  position: fixed;
+  left: 0vw;
+  bottom: 8vh;
+  height: 65vh;
+  width: clamp(160px, 10vw, 220px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: 0px solid #333333;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%); /* Start fully hidden */
+  transition: opacity 1.5s ease, transform 0.4s ease; /* Smooth transition for all states */
+  z-index: 80;
+  overflow-y: auto;
+  scrollbar-width: 2vw;
+  scrollbar-color: rgba(17, 17, 17, 0.25) transparent;
+}
+
+
+
+
+/* This is the "active" or "half-hidden" state */
+.side-scroll-nav.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  /* Slides the nav out just enough to be visible */
+  transform: translateX(calc(-100% + 30px));
+}
+
+/* When hovered, the nav slides out fully */
+.side-scroll-nav.is-visible:hover {
+  transform: translateX(-0.5vw);
+}
+
+.side-scroll-nav-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.side-scroll-nav a {
+  font-size: 0.82rem;
+  color: var(--color-foreground);
+  text-align: left;
+  line-height: 1.3;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.side-scroll-nav span {
+  background-color: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+
+
+
+.side-scroll-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-left: 0.25rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.side-scroll-nav a.sub-link {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.side-scroll-nav a.sub-link:hover,
+.side-scroll-nav a.sub-link.active {
+  color: var(--color-accent);
+}
+
+.side-scroll-nav a:hover,
+.side-scroll-nav a.active {
+  color: var(--color-accent);
+}
+
+.side-nav-label-separate {
+  position: fixed;
+  bottom: -10vh; /* Must match the .side-scroll-nav */
+  
+  /* Positioned to appear just to the right of the partially visible nav */
+  left: 35px; 
+  
+  writing-mode: vertical-rl; /* Makes the text vertical */
+  
+  background-color: transparent;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  
+  padding: 1rem 0.5rem;
+  height: 65vh; /* Must match the .side-scroll-nav */
+
+  
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 79; /* Sits just behind the main nav */
+  transition: opacity 1.5s ease;
+}
+
+/* This rule makes the label appear when the nav does */
+.side-scroll-nav.is-visible ~ .side-nav-label-separate {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .side-scroll-nav {
+    display: none;
   }
 }
 
@@ -1840,4 +2041,3 @@ h3 {
 .no-wrap {
   white-space: nowrap;
 }
-

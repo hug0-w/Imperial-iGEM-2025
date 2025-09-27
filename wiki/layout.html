@@ -59,6 +59,7 @@
         const ctx = canvas.getContext('2d');
         const mainHeader = document.querySelector('.main-header');
         const contentBox = document.querySelector('.content');
+        const sideScrollNav = document.querySelector('.side-scroll-nav');
 
         const TILE_SIZE = 50;
         const SCROLL_SENSITIVITY = 0.1;
@@ -100,6 +101,8 @@
         window.addEventListener('resize', onResize);
         window.addEventListener('scroll', onScroll);
         onResize();
+
+
 
         // Scrollspy 
         const sections = document.querySelectorAll('.page-section');
@@ -151,21 +154,25 @@
 
             const headerContainer = document.getElementById("fixed-header-container");
             const hoverTrigger = document.getElementById("top-hover-trigger");
+            const sideScrollNav = document.querySelector(".side-scroll-nav");
 
             if (!headerContainer || !hoverTrigger) return;
 
-            const scrollThreshold = 80;
+            const scrollThreshold = 70;
 
             function handleScroll() {
                 if (window.scrollY > scrollThreshold) {
                     headerContainer.classList.add("hidden-by-scroll");
                     hoverTrigger.style.display = "block";
+                    if (sideScrollNav) sideScrollNav.classList.add("is-visible");
                 } else {
                     headerContainer.classList.remove("hidden-by-scroll");
                     headerContainer.classList.remove("visible-by-hover");
                     hoverTrigger.style.display = "none";
+                    if (sideScrollNav) sideScrollNav.classList.remove("is-visible");
                 }
             }
+
 
             window.addEventListener("scroll", handleScroll);
 
@@ -184,7 +191,7 @@
 
 
 
-            const scrollThreshold = 100;
+        const scrollThreshold = 100;
 
 
             const transformingTextElements = document.querySelectorAll('.transforming-text-container');
@@ -314,97 +321,98 @@
         });
     </script>
 
-<script>
-  // Text Scramble Effect (Improved Version)
-  class TextScramble {
-    constructor(el) {
-      this.el = el;
-      this.chars = '!<>-_\\/[]{}—=+*^?#_';
-      this.update = this.update.bind(this);
-    }
-    setText(newText) {
-      const oldText = this.el.innerText;
-      const length = Math.max(oldText.length, newText.length);
-      const promise = new Promise((resolve) => this.resolve = resolve);
-      this.queue = [];
-      for (let i = 0; i < length; i++) {
-        const from = oldText[i] || '';
-        const to = newText[i] || '';
-        const start = Math.floor(Math.random() * 60);
-        const end = start + Math.floor(Math.random() * 60);
-        this.queue.push({ from, to, start, end });
-      }
-      cancelAnimationFrame(this.frameRequest);
-      this.frame = 0;
-      this.update();
-      return promise;
-    }
-    update() {
-      let output = '';
-      let complete = 0;
-      for (let i = 0, n = this.queue.length; i < n; i++) {
-        let { from, to, start, end, char } = this.queue[i];
-        if (this.frame >= end) {
-          complete++;
-          output += to;
-        } else if (this.frame >= start) {
-          if (!char || Math.random() < 0.28) {
-            char = this.randomChar();
-            this.queue[i].char = char;
-          }
-          output += `<span class="scramble-char">${char}</span>`;
-        } else {
-          output += from;
+    <script>
+        // Text Scramble Effect (Improved Version)
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#_';
+                this.update = this.update.bind(this);
+            }
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 60);
+                    const end = start + Math.floor(Math.random() * 60);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            update() {
+                let output = '';
+                let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar();
+                            this.queue[i].char = char;
+                        }
+                        output += `<span class="scramble-char">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) {
+                    this.resolve();
+                    this.el.style.minWidth = ''; // Clean up style
+                    this.el.style.minHeight = ''; // Clean up style
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)];
+            }
         }
-      }
-      this.el.innerHTML = output;
-      if (complete === this.queue.length) {
-        this.resolve();
-        this.el.style.minWidth = ''; // Clean up style
-        this.el.style.minHeight = ''; // Clean up style
-      } else {
-        this.frameRequest = requestAnimationFrame(this.update);
-        this.frame++;
-      }
-    }
-    randomChar() {
-      return this.chars[Math.floor(Math.random() * this.chars.length)];
-    }
-  }
 
-  // --- Initialize Scramble on Scroll ---
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrambleElements = document.querySelectorAll('.animate-text-scramble');
-    
-    scrambleElements.forEach(el => {
-      const fx = new TextScramble(el);
-      const originalText = el.innerText;
-      
-      // Get dimensions of the final text
-      el.style.visibility = 'hidden';
-      const { width, height } = el.getBoundingClientRect();
-      el.style.visibility = 'visible';
-      el.innerHTML = ''; // Clear text to start empty
+        // --- Initialize Scramble on Scroll ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrambleElements = document.querySelectorAll('.animate-text-scramble');
 
-      const scrambleObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Set min dimensions before animating
-            el.style.minWidth = `${width}px`;
-            el.style.minHeight = `${height}px`;
-            fx.setText(originalText);
-            scrambleObserver.unobserve(el);
-          }
+            scrambleElements.forEach(el => {
+                const fx = new TextScramble(el);
+                const originalText = el.innerText;
+
+                // Get dimensions of the final text
+                el.style.visibility = 'hidden';
+                const { width, height } = el.getBoundingClientRect();
+                el.style.visibility = 'visible';
+                el.innerHTML = ''; // Clear text to start empty
+
+                const scrambleObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Set min dimensions before animating
+                            el.style.minWidth = `${width}px`;
+                            el.style.minHeight = `${height}px`;
+                            fx.setText(originalText);
+                            scrambleObserver.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.9 });
+
+                scrambleObserver.observe(el);
+            });
         });
-      }, { threshold: 0.9 });
-      
-      scrambleObserver.observe(el);
-    });
-  });
-</script>
+    </script>
 
 
 
 </body>
 
 </html>
+

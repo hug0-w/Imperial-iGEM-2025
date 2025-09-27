@@ -4,16 +4,22 @@
 {% block title %}Team{% endblock %}
 
 {% block page_styles %}
-<link href="{{ url_for('static', filename='team.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block scroll_nav %}
-
+<nav class="side-scroll-nav scroll-nav">
+    <span class="side-scroll-nav-label">On This Page</span>
+    <a href="#members-section">Team Members</a>
+    <a href="#advisors-section">Advisors & Mentors</a>
+    <a href="#attributions-section">Attributions</a>
+</nav>
 {% endblock %}
+
 
 {% block page_content %}
 
-<div class="education-hero hp-banner">
+<div class="education-hero team-banner">
     <div class="education-hero-content-container">
         <h1>TEAM</h1>
     </div>
