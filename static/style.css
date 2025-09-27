@@ -469,11 +469,11 @@ h3 {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  transform: translateX(-100px);
+  transform: translateX(-100px) translateY(-10px);
 }
 
 .logo img {
-  height: 100px;
+  height: 105px;
   width: auto;
 }
 
@@ -484,7 +484,7 @@ h3 {
   font-size: clamp(15pt, 2vw, 20pt);
   white-space: nowrap;
   transition: opacity 0.1s ease-out;
-  transform: translateY(-5px);
+
 }
 
 
@@ -598,88 +598,6 @@ h3 {
   opacity: 1;
 }
 
-
-/* ===============================================================
- * === Scroll Navigation =======================================
- * =============================================================== */
-
-
-
-.scroll-nav {
-  position: fixed;
-  left: 2rem;
-  top: 50%;
-  transform: translateY(50%);
-  z-index: 100;
-}
-
-.scroll-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.scroll-nav a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-foreground);
-  font-family: var(--font-family-headings);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  flex-direction: row-reverse;
-}
-
-.scroll-nav a span {
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-}
-
-.scroll-nav a::after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 2px;
-  background-color: var(--color-muted);
-  transition: all 0.3s ease;
-}
-
-.scroll-nav a:hover::after {
-  background-color: #000000;
-}
-
-.scroll-nav a.active::after {
-  background-color: var(--color-foreground);
-}
-
-.scroll-nav a.active span,
-.scroll-nav a:hover span {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-nav a:hover::after {
-  width: 15px;
-  background-color: #000000;
-}
-
-.scroll-nav a.active::after {
-  width: 15px;
-  background-color: var(--color-foreground);
-}
-
-@media (max-width: 1024px) {
-  .scroll-nav {
-    display: none;
-  }
-}
-
 .main-header.scrolled .header-title {
   opacity: 0;
   pointer-events: none;
@@ -734,7 +652,40 @@ h3 {
   transform: translateY(0);
 }
 
+.long-animate {
+ transition: opacity 4s ease-out, transform 4s ease-out;
+}
 
+/* --- Slide-in Animations --- */
+.animate-slide-left, .animate-slide-right {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animate-slide-left {
+  transform: translateX(-50px);
+}
+
+.animate-slide-right {
+  transform: translateX(50px);
+}
+
+.animate-slide-left.is-visible, .animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-mask-reveal {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: opacity 0.8s ease-out, clip-path 1s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.2s; /* Optional: adds a slight delay before starting */
+}
+
+.animate-mask-reveal.is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
 
 
 /* ===============================================================
@@ -742,7 +693,7 @@ h3 {
  * =============================================================== */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -754,7 +705,7 @@ h3 {
 .member-photo {
   width: 240px;
   height: 430px;
-  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 10px);
   border-radius: 0;
   object-fit: cover;
   margin-bottom: 1rem;
@@ -787,8 +738,68 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+.attributions-dropdown {
+  margin-top: 1rem;
+}
+
+.attributions-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.attributions-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.attributions-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 0 0 5px 5px;
+  transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), padding 0.5s ease;
+}
+
+.attributions-content p {
+  margin-top: 1rem; /* Add space when content is visible */
+}
+
+/* -- Active State -- */
+.attributions-dropdown.open .attributions-toggle {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.attributions-dropdown.open .toggle-icon {
+  transform: rotate(45deg);
+}
+
+.attributions-dropdown.open .attributions-content {
+  max-height: 500px; /* A large value to allow content to expand */
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+
+
 .team-page-wide .content {
-  max-width: 40vw;
+  max-width: 1100px;
 }
 
 
@@ -867,7 +878,7 @@ h3 {
 
 @media (max-width: 1300px) {
   .page-section p {
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   .tagline-subline {
@@ -883,6 +894,10 @@ h3 {
   }
 
   .feature-card p {
+    font-size: 12pt;
+  }
+
+  .dropdown-menu a {
     font-size: 12pt;
   }
 
@@ -1083,6 +1098,38 @@ h3 {
 }
 
 
+.simple-carousel {
+  position: relative;
+  width: 100%; /* Make it fill the container it's in */
+}
+
+/* This is the base image that sets the size */
+.simple-carousel img:first-child {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* This is the second image that fades in on top */
+.simple-carousel img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures it covers the first image perfectly */
+  opacity: 0;
+  animation: simpleFade 10s infinite;
+  animation-delay: 10s;
+}
+
+@keyframes simpleFade {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .carousel-inner {
   border-radius: 15px;
   overflow: hidden;
@@ -1101,8 +1148,6 @@ h3 {
   height: auto;
   opacity: 0.5;
   transition: opacity 0.3s ease;
-  border: 2px solid transparent;
-  border-radius: 5px;
   padding: 0;
   text-indent: 0;
   background-color: transparent;
@@ -1111,7 +1156,6 @@ h3 {
 .carousel-indicators button.active,
 .carousel-indicators button:hover {
   opacity: 1;
-  border-color: var(--color-foreground);
 }
 
 .carousel-indicators button img {
@@ -1193,8 +1237,6 @@ h3 {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -1633,6 +1675,149 @@ h3 {
 }
 
 /* ===============================================================
+ * === Final Flexible Snaking Timeline (Static Version) ==========
+ * =============================================================== */
+
+.snake-timeline {
+  position: relative;
+  max-width: 95vw;
+}
+
+/* The central vertical line */
+.snake-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-color: #333333;
+}
+
+.timeline-event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+/* The dot on the timeline */
+.timeline-event::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background-color: #333333;
+  border: 3px solid #333333;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.event-left {
+  grid-column: 1;
+  text-align: right;
+}
+
+.event-right {
+  grid-column: 3;
+  text-align: left;
+}
+
+/* General styling for ANY content inside the columns */
+.event-left > *, .event-right > * {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.event-left > * {
+  margin-left: auto;
+}
+
+.event-right > * {
+  margin-right: auto;
+}
+
+.timeline-content {
+  padding: 0.5rem;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.event-left > .image-aligner-center,
+.event-right > .image-aligner-center {
+  margin: 0 auto; /* Removes the side-margin and centers the block */
+}
+
+/* --- Section Header --- */
+.timeline-section-header {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.timeline-header-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.timeline-header-link .tagline-subline {
+  transition: color 0.3s ease;
+}
+
+.timeline-header-link:hover .tagline-subline {
+  color: #0d6efd;
+}
+
+.timeline-section-header .tagline-subline {
+  display: inline-block;
+  position: relative;
+  background-color: var(--color-background);
+  padding: 1rem 1.5rem;
+  margin-bottom: 0;
+}
+
+
+/* --- Mobile Styles --- */
+@media (max-width: 768px) {
+  .snake-timeline::before {
+    left: 9px;
+  }
+  .timeline-event {
+    grid-template-columns: 1fr;
+    padding-left: 40px;
+    gap: 1rem;
+  }
+  .timeline-event::after {
+    left: 9px;
+  }
+  .event-left,
+  .event-right {
+    grid-column: 1;
+    text-align: left;
+  }
+  .event-left > *, .event-right > * {
+    margin-left: 0;
+  }
+  .timeline-section-header {
+    text-align: left;
+    padding-left: 40px;
+  }
+  .timeline-section-header .tagline-subline {
+    padding: 0 1rem 0 0;
+  }
+}
+
+
+
+/* ===============================================================
  * === Rotating Image Animation ==================================
  * =============================================================== */
 
@@ -1655,3 +1840,4 @@ h3 {
 .no-wrap {
   white-space: nowrap;
 }
+
