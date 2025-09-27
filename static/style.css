@@ -683,13 +683,7 @@ h3 {
   transform: translateX(0);
 }
 
-.animate-mask-reveal {
-  opacity: 0;
-  clip-path: inset(0 100% 0 0);
-  transition: opacity 0.8s ease-out, clip-path 1s cubic-bezier(0.23, 1, 0.32, 1);
-  transition-delay: 0.2s;
-  /* Optional: adds a slight delay before starting */
-}
+
 
 .animate-mask-reveal.is-visible {
   opacity: 1;
@@ -789,7 +783,7 @@ h3 {
 
 .attributions-content p {
   margin-top: 1rem;
-  /* Add space when content is visible */
+
 }
 
 /* -- Active State -- */
@@ -804,7 +798,6 @@ h3 {
 
 .attributions-dropdown.open .attributions-content {
   max-height: 500px;
-  /* A large value to allow content to expand */
   padding: 0.5rem 1rem 1rem 1rem;
 }
 
@@ -1116,17 +1109,15 @@ h3 {
 .simple-carousel {
   position: relative;
   width: 100%;
-  /* Make it fill the container it's in */
 }
 
-/* This is the base image that sets the size */
 .simple-carousel img:first-child {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* This is the second image that fades in on top */
+
 .simple-carousel img:nth-child(2) {
   position: absolute;
   top: 0;
@@ -1134,7 +1125,6 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Ensures it covers the first image perfectly */
   opacity: 0;
   animation: simpleFade 10s infinite;
   animation-delay: 10s;
@@ -1739,7 +1729,6 @@ h3 {
   clip-path: inset(0 -100vmax);
 }
 
-/* This makes sure the text inside the grey block is white and readable */
 .timeline-event-grey .timeline-content h4,
 .timeline-event-grey .timeline-content p,
 .timeline-event-grey .tagline-subline span {
@@ -1758,20 +1747,18 @@ h3 {
   z-index: 0;
 }
 
-/* This makes the dot white inside the grey section */
+
 .timeline-event-grey.timeline-event::after {
   border-color: #FFFFFF;
-  background-color: #FFFFFF; /* Match the grey background */
+  background-color: #FFFFFF; 
 }
 
-/* This ensures the content inside the dot stays on top of the new line */
 .timeline-event-grey .event-left,
 .timeline-event-grey .event-right {
   position: relative;
   z-index: 1;
 }
 
-/* The dot on the timeline */
 .timeline-event::after {
   content: '';
   position: absolute;
@@ -1819,7 +1806,7 @@ h3 {
 
 
 
-/* --- Section Header --- */
+
 .timeline-section-header {
   position: relative;
   width: 100%;
@@ -1848,7 +1835,7 @@ h3 {
 }
 
 
-/* --- Mobile Styles --- */
+
 @media (max-width: 768px) {
   .snake-timeline::before {
     left: 9px;
@@ -1905,26 +1892,20 @@ h3 {
   border: 0px solid #333333;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-100%); /* Start fully hidden */
-  transition: opacity 1.5s ease, transform 0.4s ease; /* Smooth transition for all states */
+  transform: translateX(-100%); 
+  transition: opacity 1.5s ease, transform 0.4s ease; 
   z-index: 80;
   overflow-y: auto;
   scrollbar-width: 2vw;
   scrollbar-color: rgba(17, 17, 17, 0.25) transparent;
 }
 
-
-
-
-/* This is the "active" or "half-hidden" state */
 .side-scroll-nav.is-visible {
   opacity: 1;
   pointer-events: auto;
-  /* Slides the nav out just enough to be visible */
   transform: translateX(calc(-100% + 30px));
 }
 
-/* When hovered, the nav slides out fully */
 .side-scroll-nav.is-visible:hover {
   transform: translateX(-0.5vw);
 }
@@ -1950,9 +1931,6 @@ h3 {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-
-
-
 
 .side-scroll-group {
   display: flex;
@@ -1980,12 +1958,11 @@ h3 {
 
 .side-nav-label-separate {
   position: fixed;
-  bottom: -10vh; /* Must match the .side-scroll-nav */
+  bottom: -10vh;
   
-  /* Positioned to appear just to the right of the partially visible nav */
   left: 35px; 
   
-  writing-mode: vertical-rl; /* Makes the text vertical */
+  writing-mode: vertical-rl;
   
   background-color: transparent;
   color: var(--color-muted);
@@ -1995,17 +1972,16 @@ h3 {
   text-transform: uppercase;
   
   padding: 1rem 0.5rem;
-  height: 65vh; /* Must match the .side-scroll-nav */
+  height: 65vh; 
 
   
-  /* Hidden by default */
+
   opacity: 0;
   pointer-events: none;
-  z-index: 79; /* Sits just behind the main nav */
+  z-index: 79; 
   transition: opacity 1.5s ease;
 }
 
-/* This rule makes the label appear when the nav does */
 .side-scroll-nav.is-visible ~ .side-nav-label-separate {
   opacity: 1;
 }
