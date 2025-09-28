@@ -5,18 +5,19 @@
             <img src="https://static.igem.wiki/teams/5916/assets/images/logo-no-text.webp" alt="Imperial 2025 Logo"
                 onerror="this.onerror=null; this.src='https://placehold.co/150x50/F2F2F0/111111?text=Logo';">
         </a>
-        <span class="header-title" data-text="Team Imperial">Team Imperial</span>
+        <span class="header-title" data-text="Team Imperial">TEAM IMPERIAL</span>
     </div>
 
     <nav class="main-nav">
         <ul>
-            <li><a href="{{ url_for('pages', page='home') }}"><img src="https://static.igem.wiki/teams/5916/assets/icons/home-icon.webp" class="nav-icon-img" style="max-width: 85%; transform: translateY(-0.25vw) translateX(0.5vw);"></a></li>
+            <li><a href="{{ url_for('pages', page='home') }}"><img
+                        src="https://static.igem.wiki/teams/5916/assets/icons/home-icon.webp" class="nav-icon-img"
+                        style="max-width: 85%; transform: translateY(-0.25vw) translateX(0.5vw);"></a></li>
             <li class="has-dropdown">
                 <a href="#">PROJECT</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ url_for('pages', page='Problem') }}">
-                            <img src="https://static.igem.wiki/teams/5916/assets/icons/enginnering40px.webp"
-                                class="nav-icon-img" alt="Contribution Icon"><span>DESCRIPTION</span></a></li>
+                            <span>DESCRIPTION</span></a></li>
                     <li><a href="{{ url_for('pages', page='Description') }}">ENGINEERING</a></li>
                     <li><a href="{{ url_for('pages', page='Results') }}">RESULTS</a></li>
                     <li><a href="{{ url_for('pages', page='Engineering') }}">ENGINEERING</a></li>
@@ -25,10 +26,10 @@
             </li>
             <li class="has-dropdown">
                 <a href="#"> LAB</a>
-            <ul class="dropdown-menu">
-                <li><a href="{{ url_for('pages', page='wet-lab') }}"><span>Wet Lab</span></a></li>
-                <li><a href="{{ url_for('pages', page='dry-lab') }}"><span>Dry Lab</span></a></li>
-            </ul>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('pages', page='wet-lab') }}"><span>Wet Lab</span></a></li>
+                    <li><a href="{{ url_for('pages', page='dry-lab') }}"><span>Dry Lab</span></a></li>
+                </ul>
             <li><a href="{{ url_for('pages', page='dry-lab') }}">ProcEng</a></li>
             <li><a href="{{ url_for('pages', page='education') }}">EDUCATION</a></li>
             <li><a href="{{ url_for('pages', page='human-practices') }}">HP</a></li>

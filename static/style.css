@@ -2,13 +2,50 @@
  * === Global Styles & CSS Variables =============================
  * =============================================================== */
 
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Oxanium';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/oxanium-v21-latin-regular.woff2') format('woff2'); 
+}
+
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Oxanium';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/oxanium-v21-latin-600.woff2') format('woff2'); 
+}
+
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Commissioner';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/commissioner-v24-latin-regular.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Commissioner';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/commissioner-v24-latin-600.woff2') format('woff2'); 
+}
+
+
+
 :root {
   --color-background: #F2F2F0;
   --color-foreground: #111111;
   --color-muted: #555555;
   --color-accent: #111111;
-  --font-family-headings: 'jaf-mashine-rounded', sans-serif;
-  --font-family-body: 'brisbane', sans-serif;
+  --font-family-headings:  'Oxanium', sans-serif;
+  --font-family-body: 'Commissioner', sans-serif;
   --font-size-base: 16px;
   --font-weight-normal: 400;
   --font-weight-bold: 600;
@@ -284,8 +321,8 @@ h3 {
 
 .tagline-subline {
   font-family: var(--font-family-headings);
-  font-weight: 400;
-  font-size: 25pt;
+  font-weight: 600;
+  font-size: 32pt;
   color: var(--color-foreground);
   text-shadow: none;
   margin-bottom: 1.5rem;
@@ -886,7 +923,7 @@ h3 {
   }
 
   .tagline-subline {
-    font-size: 22pt;
+    font-size: 25pt;
   }
 
   .scroll-nav a {
@@ -902,9 +939,10 @@ h3 {
   }
 
   .dropdown-menu a {
-    font-size: 12pt;
+    font-size: 12pt !important;
   }
 
+  
 }
 
 
@@ -1264,7 +1302,7 @@ h3 {
 .dropdown-menu a {
   display: block;
   padding: 0rem 0.5rem;
-  font-size: 16pt;
+  font-size: 15pt;
   color: var(--color-foreground);
   border-bottom: none;
   text-transform: uppercase;
@@ -1541,8 +1579,8 @@ h3 {
 }
 
 .nav-icon-img {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
 }
 
@@ -1736,6 +1774,10 @@ h3 {
 .timeline-content {
   padding: 0.5rem;
   background-color: transparent;
+}
+
+.timeline-content p {
+  font-size: 12pt;
 }
 
 .timeline-section-header {
