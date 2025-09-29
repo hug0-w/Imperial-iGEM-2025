@@ -1731,14 +1731,15 @@ h3 {
 }
 
 /* ===============================================================
- * === New Two-Column Timeline Styles ============================
+ * ===  Timeline Styles ============================
  * =============================================================== */
+
 
 /* Human Practices summary timeline */
 .hp-summary-timeline {
-  width: 80vw;
+  width: 85vw;
   margin: 2rem auto 2.5rem;
-  color: #f5f8ff;
+  color: #111111;
 }
 
 .hp-summary-timeline-scroll {
@@ -1749,57 +1750,72 @@ h3 {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding: 3.25rem 0 3rem;
+  align-items: flex-start;
   margin: 0;
   position: relative;
   width: 100%;
+  min-height: 300px;
 }
+
+.hp-summary-timeline-item:nth-child(2) {
+  margin-right: 3.5rem;
+}
+
+.hp-summary-timeline-item:nth-child(3) {
+  margin-left: 3.5rem;
+}
+
 
 .hp-summary-timeline-list::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.65);
   pointer-events: none;
 }
 
 .hp-summary-timeline-item {
-  flex: 1 1 0;
+  flex-basis: 25%;
   min-width: 48px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   position: relative;
+  padding-top: 3.5rem;
+}
+
+
+.hp-summary-timeline-item:nth-child(1),
+.hp-summary-timeline-item:nth-child(3) {
+  margin-top: 70px;
 }
 
 .hp-summary-timeline-link {
   display: block;
   position: relative;
-  padding: 3.75rem 0 0;
-  min-height: 5.5rem;
   text-decoration: none;
   color: inherit;
   text-align: center;
-  max-width: 6.75rem;
-
 }
 
 .hp-summary-timeline-link::after {
   content: '';
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: 1px;
-  height: 5rem;
-  background: rgba(0, 0, 0, 0.55);
-  transform-origin: center top;
-  transform: translate(-50%, 0) scaleY(-1);
-  
+  bottom: 100%;
+  width: 3px;
+  height: 3.5rem;
+  background: black;
+  transform: translateX(-50%);
+
+}
+
+.hp-summary-timeline-item:nth-child(1) .hp-summary-timeline-link::after,
+.hp-summary-timeline-item:nth-child(3) .hp-summary-timeline-link::after {
+  height: calc(3.5rem + 70px);
 }
 
 .hp-summary-timeline-node {
@@ -1812,30 +1828,52 @@ h3 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 0;
   transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.hp-summary-timeline-item:nth-child(1) .hp-summary-timeline-node,
+.hp-summary-timeline-item:nth-child(3) .hp-summary-timeline-node {
+  top: -70px;
+
 }
 
 .hp-summary-timeline-label {
-  font-size: 0.82rem;
+  font-size: clamp(0.9rem, 12pt, 16pt);
   line-height: 1.25;
   white-space: nowrap;
   letter-spacing: 0.02em;
   transition: color 0.2s ease;
-  position: absolute;
-  left: 50%;
+  display: block;
+  margin-top: 0.5rem;
+}
 
-  top: calc(50% - 6.5rem);
-  transform: translate(-50%, 0)  translateY(-0.3rem);
+.hp-summary-sublist {
+  list-style: none;
+  padding: 0;
+  margin-top: -5%;
+  text-align: center;
+}
 
-  transform-origin: bottom center;
-  padding: 0.35rem 0.45rem;
+.hp-summary-sublist li a {
+  font-size: 0.8rem;
+  color: black;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.hp-summary-sublist li a:hover {
+  color: #000000;
+  text-decoration: underline;
 }
 
 .hp-summary-timeline-link:hover .hp-summary-timeline-label,
 .hp-summary-timeline-link:focus .hp-summary-timeline-label,
 .hp-summary-timeline-link:focus-visible .hp-summary-timeline-label {
-  color: #4dbcfd;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .hp-summary-timeline-link:focus-visible {
@@ -1844,21 +1882,17 @@ h3 {
   border-radius: 0.5rem;
 }
 
-.hp-summary-timeline-link:hover .hp-summary-timeline-node,
-.hp-summary-timeline-link:focus .hp-summary-timeline-node,
-.hp-summary-timeline-link:focus-visible .hp-summary-timeline-node {
+.hp-summary-timeline-link:hover~.hp-summary-timeline-node,
+.hp-summary-timeline-link:focus~.hp-summary-timeline-node,
+.hp-summary-timeline-link:focus-visible~.hp-summary-timeline-node {
   transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 0 0 0.3rem rgba(77, 188, 253, 0.3);
 }
 
+/* Mobile Styling */
 @media (max-width: 1024px) {
   .hp-summary-timeline-list {
     gap: 0.85rem;
-  }
-
-  .hp-summary-timeline-link {
-    padding: 3.5rem 0 0;
-    min-height: 7.5rem;
   }
 
   .hp-summary-timeline-label {
@@ -1872,15 +1906,19 @@ h3 {
     row-gap: 1.4rem;
     justify-content: center;
     padding: 2rem 0 1.5rem;
+    min-height: 0;
   }
 
-  .hp-summary-timeline-list::before {
+  .hp-summary-timeline-list::before,
+  .hp-summary-timeline-link::after {
     display: none;
   }
 
   .hp-summary-timeline-item {
-    flex: 1 1 30%;
+    flex: 1 1 45%;
     min-width: 120px;
+    margin-top: 0 !important;
+    padding-top: 0;
   }
 
   .hp-summary-timeline-link {
@@ -1888,38 +1926,34 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.75rem 0.5rem;
+    padding: 1rem 0.5rem;
     min-height: auto;
-  }
-
-  .hp-summary-timeline-link::after {
-    display: none;
   }
 
   .hp-summary-timeline-node {
     position: static;
     transform: none;
+    margin-bottom: 0.75rem;
+  }
+
+  .hp-summary-timeline-item:nth-child(1) .hp-summary-timeline-node,
+  .hp-summary-timeline-item:nth-child(3) .hp-summary-timeline-node {
+    top: auto;
   }
 
   .hp-summary-timeline-label {
     position: static;
     transform: none;
     padding: 0;
-    margin-top: 0.75rem;
+    margin-top: 0;
+  }
+
+  .hp-summary-sublist {
+    display: none;
   }
 }
 
-@media (max-width: 576px) {
-  .hp-summary-timeline-item {
-    flex: 1 1 45%;
-  }
-
-  .hp-summary-timeline-label {
-    font-size: 0.78rem;
-  }
-}
-
-
+/* Snake Timeline */
 .snake-timeline {
   position: relative;
   max-width: 100vw;
@@ -1932,11 +1966,12 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 3px;
-  top: -14rem;                 /* raise the rail to sit behind the summary timeline */
-  height: calc(100% + 3.5rem); 
+  top: -26rem;
+  height: calc(100% + 25rem);
   background-color: #333333;
   z-index: -1;
 }
+
 
 .timeline-event {
   position: relative;
@@ -1987,7 +2022,8 @@ h3 {
 }
 
 .timeline-header-link:hover .tagline-subline {
-  color: #0d6efd;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .timeline-event-grey {
