@@ -4,37 +4,37 @@
 
 
 @font-face {
-  font-display: swap; 
+  font-display: swap;
   font-family: 'Oxanium';
   font-style: normal;
   font-weight: 400;
-  src: url('https://static.igem.wiki/teams/5916/assets/fonts/oxanium-v21-latin-regular.woff2') format('woff2'); 
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/oxanium-v21-latin-regular.woff2') format('woff2');
 }
 
 
 @font-face {
-  font-display: swap; 
+  font-display: swap;
   font-family: 'Oxanium';
   font-style: normal;
   font-weight: 600;
-  src: url('https://static.igem.wiki/teams/5916/assets/fonts/oxanium-v21-latin-600.woff2') format('woff2'); 
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/oxanium-v21-latin-600.woff2') format('woff2');
 }
 
 
 @font-face {
-  font-display: swap; 
+  font-display: swap;
   font-family: 'Commissioner';
   font-style: normal;
   font-weight: 400;
-  src: url('https://static.igem.wiki/teams/5916/assets/fonts/commissioner-v24-latin-regular.woff2') format('woff2'); 
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/commissioner-v24-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-display: swap; 
+  font-display: swap;
   font-family: 'Commissioner';
   font-style: normal;
   font-weight: 600;
-  src: url('https://static.igem.wiki/teams/5916/assets/fonts/commissioner-v24-latin-600.woff2') format('woff2'); 
+  src: url('https://static.igem.wiki/teams/5916/assets/fonts/commissioner-v24-latin-600.woff2') format('woff2');
 }
 
 
@@ -44,7 +44,7 @@
   --color-foreground: #111111;
   --color-muted: #555555;
   --color-accent: #111111;
-  --font-family-headings:  'Oxanium', sans-serif;
+  --font-family-headings: 'Oxanium', sans-serif;
   --font-family-body: 'Commissioner', sans-serif;
   --font-size-base: 16px;
   --font-weight-normal: 400;
@@ -468,9 +468,11 @@ h3 {
 .coloured-block-lime-green {
   background-color: #D6FF36;
 }
+
 .coloured-block-orange {
   background-color: #FF8B00;
 }
+
 .coloured-block-sky-blue {
   background-color: #00C8FF;
 }
@@ -732,115 +734,113 @@ h3 {
  * === Team Page Styles ==========================================
  * =============================================================== */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 70vw;
+  margin: 2rem auto 0 auto;
 }
 
 .team-member {
-  text-align: center;
+  display: flex;
+  align-items: stretch;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .member-photo {
-  width: 240px;
-  height: 430px;
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 10px);
-  border-radius: 0;
+  width: 250px;
+  height: auto;
   object-fit: cover;
-  margin-bottom: 1rem;
-  border: 0px solid var(--color-foreground);
+  flex-shrink: 0;
+}
+
+.member-textbox {
+  flex-grow: 1;
+  background-color: white;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.member-info {
+  margin-bottom: 20px;
 }
 
 .member-name {
   font-family: var(--font-family-headings);
-  font-weight: 300;
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
 }
 
 .member-role {
   font-family: var(--font-family-body);
-  color: var(--color-muted);
-  margin-bottom: 1rem;
-}
-
-.member-attributions {
-  font-size: 0.9rem;
-  text-align: left;
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 1rem;
-  border-radius: 5px;
-}
-
-.member-attributions strong {
-  display: block;
-  margin-bottom: 0.5rem;
+  font-size: 1.1em;
+  color: #555;
+  margin-top: 0;
 }
 
 .attributions-dropdown {
-  margin-top: 1rem;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
 }
 
 .attributions-toggle {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 0;
+  width: 100%;
+  text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: rgba(0, 0, 0, 0.05);
-  border: none;
-  border-radius: 5px;
-  font-family: var(--font-family-body);
+  transition: color 0.2s ease-in-out;
   font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-family: var(--font-family-body);
 }
 
 .attributions-toggle:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  color: #007bff;
 }
 
 .toggle-icon {
-  font-size: 1.5rem;
-  font-weight: 300;
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.attributions-content {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 1rem;
-  font-size: 0.9rem;
-  background-color: rgba(0, 0, 0, 0.02);
-  border-radius: 0 0 5px 5px;
-  transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), padding 0.5s ease;
-}
-
-.attributions-content p {
-  margin-top: 1rem;
-
-}
-
-/* -- Active State -- */
-.attributions-dropdown.open .attributions-toggle {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease-in-out;
 }
 
 .attributions-dropdown.open .toggle-icon {
   transform: rotate(45deg);
 }
 
-.attributions-dropdown.open .attributions-content {
-  max-height: 500px;
-  padding: 0.5rem 1rem 1rem 1rem;
+.attributions-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
 }
 
+.attributions-dropdown.open .attributions-content {
+  max-height: 500px;
+  /* Adjust if needed for longer bios */
+}
+
+.attributions-content p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #666;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
 
 .team-page-wide .content {
-  max-width: 800px;
+  max-width: 100%;
 }
 
 
@@ -942,7 +942,7 @@ h3 {
     font-size: 12pt !important;
   }
 
-  
+
 }
 
 
@@ -1734,6 +1734,192 @@ h3 {
  * === New Two-Column Timeline Styles ============================
  * =============================================================== */
 
+/* Human Practices summary timeline */
+.hp-summary-timeline {
+  width: 80vw;
+  margin: 2rem auto 2.5rem;
+  color: #f5f8ff;
+}
+
+.hp-summary-timeline-scroll {
+  padding: 0 0 1.75rem;
+}
+
+.hp-summary-timeline-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3.25rem 0 3rem;
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.hp-summary-timeline-list::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+}
+
+.hp-summary-timeline-item {
+  flex: 1 1 0;
+  min-width: 48px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.hp-summary-timeline-link {
+  display: block;
+  position: relative;
+  padding: 3.75rem 0 0;
+  min-height: 5.5rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  max-width: 6.75rem;
+
+}
+
+.hp-summary-timeline-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 5rem;
+  background: rgba(0, 0, 0, 0.55);
+  transform-origin: center top;
+  transform: translate(-50%, 0) scaleY(-1);
+  
+}
+
+.hp-summary-timeline-node {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #000000;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hp-summary-timeline-label {
+  font-size: 0.82rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  position: absolute;
+  left: 50%;
+
+  top: calc(50% - 6.5rem);
+  transform: translate(-50%, 0)  translateY(-0.3rem);
+
+  transform-origin: bottom center;
+  padding: 0.35rem 0.45rem;
+}
+
+.hp-summary-timeline-link:hover .hp-summary-timeline-label,
+.hp-summary-timeline-link:focus .hp-summary-timeline-label,
+.hp-summary-timeline-link:focus-visible .hp-summary-timeline-label {
+  color: #4dbcfd;
+}
+
+.hp-summary-timeline-link:focus-visible {
+  outline: 2px solid rgba(54, 64, 70, 0.8);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
+.hp-summary-timeline-link:hover .hp-summary-timeline-node,
+.hp-summary-timeline-link:focus .hp-summary-timeline-node,
+.hp-summary-timeline-link:focus-visible .hp-summary-timeline-node {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 0 0.3rem rgba(77, 188, 253, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .hp-summary-timeline-list {
+    gap: 0.85rem;
+  }
+
+  .hp-summary-timeline-link {
+    padding: 3.5rem 0 0;
+    min-height: 7.5rem;
+  }
+
+  .hp-summary-timeline-label {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hp-summary-timeline-list {
+    flex-wrap: wrap;
+    row-gap: 1.4rem;
+    justify-content: center;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .hp-summary-timeline-list::before {
+    display: none;
+  }
+
+  .hp-summary-timeline-item {
+    flex: 1 1 30%;
+    min-width: 120px;
+  }
+
+  .hp-summary-timeline-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem 0.5rem;
+    min-height: auto;
+  }
+
+  .hp-summary-timeline-link::after {
+    display: none;
+  }
+
+  .hp-summary-timeline-node {
+    position: static;
+    transform: none;
+  }
+
+  .hp-summary-timeline-label {
+    position: static;
+    transform: none;
+    padding: 0;
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hp-summary-timeline-item {
+    flex: 1 1 45%;
+  }
+
+  .hp-summary-timeline-label {
+    font-size: 0.78rem;
+  }
+}
+
+
 .snake-timeline {
   position: relative;
   max-width: 100vw;
@@ -1743,11 +1929,11 @@ h3 {
 .snake-timeline::before {
   content: '';
   position: absolute;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 3px;
-  height: 100%;
+  top: -14rem;                 /* raise the rail to sit behind the summary timeline */
+  height: calc(100% + 3.5rem); 
   background-color: #333333;
   z-index: -1;
 }
@@ -1755,12 +1941,12 @@ h3 {
 .timeline-event {
   position: relative;
   margin-bottom: 0rem;
-  gap: 5rem; 
+  gap: 5rem;
 }
 
 .timeline-dot {
   position: absolute;
-  top: 1rem; 
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   width: 18px;
@@ -1805,18 +1991,18 @@ h3 {
 }
 
 .timeline-event-grey {
-    background-color: #333333;
-    box-shadow: 0 0 0 100vmax #333333;
-    clip-path: inset(0 -100vmax);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  background-color: #333333;
+  box-shadow: 0 0 0 100vmax #333333;
+  clip-path: inset(0 -100vmax);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .timeline-section-header .tagline-subline {
   display: inline-block;
   position: relative;
-  z-index: 1; 
-  background-color: var(--color-background); 
+  z-index: 1;
+  background-color: var(--color-background);
   padding: 1rem 1.5rem;
   margin-bottom: 0;
 }
@@ -1840,13 +2026,13 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 3px;
-  background-color: #FFFFFF; 
-  z-index: 0; 
+  background-color: #FFFFFF;
+  z-index: 0;
 }
 
 
 .timeline-section-header.header-grey .tagline-subline {
-  background-color: #333333; 
+  background-color: #333333;
   color: #FFFFFF;
 }
 
@@ -1858,18 +2044,18 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 3px;
-  background-color: #FFFFFF; 
+  background-color: #FFFFFF;
   z-index: 0;
 }
 
 .timeline-event-grey .timeline-content p,
 .timeline-event-grey .timeline-content span {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .timeline-event-grey .timeline-dot {
-    background-color: #FFFFFF;
-    border-color: #333333;
+  background-color: #FFFFFF;
+  border-color: #333333;
 }
 
 
@@ -1884,17 +2070,18 @@ h3 {
     gap: 1.5rem;
   }
 
-  .column-left, .column-right {
+  .column-left,
+  .column-right {
     width: 100%;
     padding-left: 3rem;
   }
-  
+
   .timeline-event .column-right {
-      order: 1;
+    order: 1;
   }
 
   .timeline-event .column-left {
-      order: 2;
+    order: 2;
   }
 
 
@@ -1928,8 +2115,8 @@ h3 {
   border: 0px solid #333333;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-100%); 
-  transition: opacity 1.5s ease, transform 0.4s ease; 
+  transform: translateX(-100%);
+  transition: opacity 1.5s ease, transform 0.4s ease;
   z-index: 80;
   overflow-y: auto;
   scrollbar-width: 2vw;
@@ -1995,30 +2182,30 @@ h3 {
 .side-nav-label-separate {
   position: fixed;
   bottom: -10vh;
-  
-  left: 35px; 
-  
+
+  left: 35px;
+
   writing-mode: vertical-rl;
-  
+
   background-color: transparent;
   color: var(--color-muted);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  
-  padding: 1rem 0.5rem;
-  height: 65vh; 
 
-  
+  padding: 1rem 0.5rem;
+  height: 65vh;
+
+
 
   opacity: 0;
   pointer-events: none;
-  z-index: 79; 
+  z-index: 79;
   transition: opacity 1.5s ease;
 }
 
-.side-scroll-nav.is-visible ~ .side-nav-label-separate {
+.side-scroll-nav.is-visible~.side-nav-label-separate {
   opacity: 1;
 }
 
