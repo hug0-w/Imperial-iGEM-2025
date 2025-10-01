@@ -33,7 +33,13 @@
             <li><a href="{{ url_for('pages', page='dry-lab') }}">DSP</a></li>
             <li><a href="{{ url_for('pages', page='education') }}">EDUCATION</a></li>
             <li><a href="{{ url_for('pages', page='human-practices') }}">HP</a></li>
-            <li><a href="{{ url_for('pages', page='team') }}">TEAM</a></li>
+
+            <li class="has-dropdown">
+                <a href="#"> TEAM</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('pages', page='team') }}"><span>Members</span></a></li>
+                    <li><a href="{{ url_for('pages', page='attributions') }}"><span>Attributions</span></a></li>
+                </ul>
         </ul>
     </nav>
 </header>

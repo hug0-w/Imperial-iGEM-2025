@@ -2276,3 +2276,40 @@ h3 {
 .no-wrap {
   white-space: nowrap;
 }
+
+
+/* ===============================================================
+ * === Cite stuff ==================================
+ * ========================== */
+
+
+.citation-block {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #f8f9fa; 
+    border-top: 3px solid #dee2e6;
+    border-radius: var(--bs-border-radius);
+}
+
+.citation-block h3 {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.citation-block ol {
+    list-style-type: decimal;
+    padding-left: 2rem;
+    margin: 0;
+}
+
+.citation-block ol li {
+    margin-bottom: 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.citation-block ol li a {
+    word-break: break-all; 
+}

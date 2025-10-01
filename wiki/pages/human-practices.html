@@ -53,6 +53,7 @@ the world. Consider how the world affects your work and how your work affects th
         <ul class="hp-summary-sublist">
           <li><a href="#vision-and-mission"><span class="animate-text-scramble">Vision & Mission</span></a></li>
           <li><a href="#business-strategy"><span class="animate-text-scramble">Business Strategy</span></a></li>
+          <li><a href="#ip"><span class="animate-text-scramble">IP</span></a></li>
           <li><a href="#simulating-a-biotech-investor-pitch"><span class="animate-text-scramble">Biotech Investor
                 Pitch</span></a></li>
         </ul>
@@ -139,6 +140,8 @@ the world. Consider how the world affects your work and how your work affects th
     </div>
   </div>
 
+  <div class="spacer5"></div>
+
   <div class="two-column-container timeline-event">
     <div class="timeline-dot"></div>
     <div class="column-left">
@@ -174,6 +177,7 @@ the world. Consider how the world affects your work and how your work affects th
     </div>
   </div>
 
+  <div class="spacer5"></div>
 
 
   <div class="timeline-section-header header-grey" id="research-and-experimentation">
@@ -188,6 +192,59 @@ the world. Consider how the world affects your work and how your work affects th
   </div>
 
   <div class="two-column-container timeline-event timeline-event-grey">
+    <div class="timeline-dot"></div>
+    <div class="column-left">
+      <div class="timeline-content">
+
+        <div class="tagline-subline " style="text-align: center;"><span class="animate-text-scramble">Dr. Brigitte
+            Gasser</span></div>
+        <div class="image-aligner-center"> <img src="https://static.igem.wiki/teams/5916/hp/brigitte.webp"
+            style="max-width: 60%;"></div>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="timeline-content">
+        <p style="text-align: left;">Dr Brigitte Gasser is an associate professor for microbial systems biotechnology
+          and leader of sustainable production at the Austrian Centre of Industrial Biotechnology at BOKU University in
+          Vienna. Her expertise broadly spans systems and synthetic biology for <i>K. phaffii</i> engineering, where she
+          holds 20 patent families and serves on the editorial board of FEMS yeast research.
+          <br><br>
+          In reaching out to Dr. Gasser we sought to obtain a perspective on the cutting-edge of different aspects that
+          are being engineered to improve the chassis we are working on. Specifically, we wanted to inquire about
+          metabolic engineering and degradation/stress pathways.
+          <br><br>
+          We firstly inquired about industry concerns regarding polymannose contamination in culture supernatant at high
+          cell densities, which Dr. Gasser commented as not being a problem brought up by the industry so far. This was
+          largely in line with our expectations, as the issue has only recently been highlighted in academia, though
+          unlocking gains through streamlined metabolism was confirmed as an avenue of interest for greater yields.
+          <br><br>
+          Dr. Gasser remarked that, especially for producing heterologous proteins with several disulfide bonds, there
+          are bottlenecks present in folding, which likely introduce cell lysis at worst or at best ER-associated
+          degradation, leading to suboptimal titers. It was also mentioned that this could be ameliorated at times by
+          overexpressing UPR proteins or co-expressing chaperones, but we decided not to pursue this avenue due to a
+          recorded dependence on combinatorial experimentation, resulting in a less generalisable contribution and large
+          experimental footprint.
+          <br><br>
+          When we inquired about fermentation techniques, Dr. Gasser mentioned that while fed-batch fermentation with
+          methanol is currently the most commonly used method with <i>K. phaffii</i> in industry, we may see more
+          continuous
+          fermentation methods with other feedstocks, such as glucose, become more common in the future. Although we had
+          no time to implement this feedback into our project design, this gave us new insight from the perspective of
+          an expert with perspectives from both academia and industry on the future of <i>K. phaffii</i> precision
+          fermentation.
+          <br><br>
+          Other extrinsic drivers to push down production costs of high PTM proteins in <i>K. Phaffii</i> also became a
+          topic
+          of discussion, as grants to produce $10/kg monoclonal antibodies are being issued through an initiative by the
+          Bill and Melinda Gates foundation that Dr. Gasser mentioned. This avenue inspired us to think more about other
+          stakeholders that would benefit from a chassis better at producing highly complex proteins.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="two-column-container timeline-event timeline-event-grey" style="margin-top: -1%;">
     <div class="timeline-dot"></div>
     <div class="column-left">
       <div class="timeline-content">
@@ -313,6 +370,54 @@ the world. Consider how the world affects your work and how your work affects th
     <div class="column-left">
       <div class="timeline-content">
         <div class="spacer5"></div>
+        <div class="tagline-subline" style="text-align: center;"><span class="animate-text-scramble">Dr. Jason Yu</span>
+        </div>
+        <div class="image-aligner-center">
+          <img src="https://static.igem.wiki/teams/5916/hp/jason.webp" style="max-width: 80%;">
+        </div>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="timeline-content">
+        <div class="spacer5"></div>
+        <p style="text-align: left;">Dr Jason Yu is a member of the Polizzi lab in the Department of Chemical
+          Engineering. His current research is centred on CRISPR-Cas9 engineering to change flocculation behaviour in
+          <i>K. phaffii</i>, with applications in the cultivated meat industry. His expertise was fundamental in
+          defining our
+          engineering strategy and experimental workflow.
+          <br><br>
+          Initially, we contacted Jason to discuss our rationale for CRISPR-Cas9 gRNA design and receive holistic
+          feedback from someone deeply knowledgeable in the field. At this point, we had identified initial gene targets
+          and tried to come up with sgRNA designs on our own with the primary goal of modifying the consensus Kozak
+          sequences of the gene targets to regulate their expression levels. We scrapped our plans of multiplexing
+          CRISPR-Cas9 edits after Jason raised concerns on metabolic burden and cell viability.
+          <br><br>
+          Through our feedback sessions, we settled on using CRISPR-Cas9 to insert a copy of one of our genes of
+          interest with an inducible promoter instead of engineering the Kozak consensus sequence. We also realized that
+          using a delta-Ku70 strain of <i>K. phaffii</i> and targeting our sgRNAs close to the start or stop codons
+          would
+          allow leveraging CRISPR-Cas9 fully through homologous recombination for our desired modifications. Jason
+          kindly offered to share some of such a strain with us, and it was subsequently utilised as the target of all
+          our CRISPR experiments.
+          <br><br>
+          Our discussions continued into experimental design and workflow for the CRISPR experiments. He introduced us
+          to electroporation, a technique none of us had experience with. We leveraged this to come up with a more
+          robust transformation strategy, along with better primer design for verifying plasmid integration.
+          <br><br>
+          Dr Yu's advice was pivotal throughout the project and he since kindly accepted to be onboarded as a formal
+          advisor for our iGEM project.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="two-column-container timeline-event timeline-event-grey" style="margin-top: -1%;">
+    <div class="timeline-dot"></div>
+    <div class="column-left">
+      <div class="timeline-content">
+        <div class="spacer5"></div>
         <div class="tagline-subline" style="text-align: center;"><span class="animate-text-scramble">Brandon Ma</span>
         </div>
         <div class="image-aligner-center">
@@ -388,8 +493,93 @@ the world. Consider how the world affects your work and how your work affects th
     </div>
   </div>
 
+  <div class="two-column-container timeline-event timeline-event-grey" style="margin-top: -1%;">
+    <div class="timeline-dot"></div>
+    <div class="column-left">
+      <div class="timeline-content">
+
+        <div class="tagline-subline" style="text-align: center;"><span class="animate-text-scramble">Dr. Matthieu
+            Bultelle</span></div>
+        <div class="image-aligner-center">
+          <img src="https://static.igem.wiki/teams/5916/hp/.webp" style="max-width: 60%;">
+        </div>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="timeline-content">
+        <div class="spacer5"></div>
+        <p style="text-align: left;">We consulted Dr. Bultelle for his expertise in replicable engineering-biology
+          workflow design and its automation. His advice was vital for setting early goals and imposing a structure for
+          the Bayesian optimization campaign of astaxanthin bioproduction experiments.
+          <br><br>
+          Dr. Bultelle’s initial advice concerned repeatability and experimental variance. We were encouraged to vary
+          stimulus and environmental properties while avoiding introduction of genetic variation. Introduced inducer
+          concentration accuracy was raised as a significant issue when working with very small volumes. This led us to
+          adopt the strategy of dispensing larger volumes and bulk preparation.
+          <br><br>
+          Lastly, we simplified our experimental design, leaning more heavily on established techniques and
+          straightforward workflows. Dr. Bultelle’s advice against attempting to design our own automation protocol for
+          the OpenTron in our lab on short notice led to us to place more value on our proof-of-concept experimen
+        </p>
+      </div>
+    </div>
+  </div>
+
   <div class="timeline-section-header" id="downstream-and-implementation">
     <div class="tagline-subline"><span>Downstream and Implementation</span></div>
+  </div>
+
+  <div class="timeline-section-header" id="culturing">
+    <div class="tagline-subline"><span>Industry Overall</span></div>
+  </div>
+
+
+  <div class="two-column-container timeline-event">
+    <div class="timeline-dot"></div>
+    <div class="column-left">
+      <div class="timeline-content">
+        <div class="spacer5"></div>
+        <div class="tagline-subline" style="text-align: center;"><span class="animate-text-scramble">Mark Warner</span>
+        </div>
+        <div class="image-aligner-center">
+          <img src="https://static.igem.wiki/teams/5916/hp/mark.webp" style="max-width: 100%;">
+        </div>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="timeline-content">
+        <div class="spacer5"></div>
+        <p style="text-align: left;">Mark Warner is the CEO of Liberation Bioindustries, a leading large-scale contract
+          manufacturer in Indiana, USA. He has consulted numerous high-profile startups and companies within the
+          biomanufacturing, alternative food- and protein space.
+
+          The most striking takeaway from our conversation was the perceived large disconnect between academic research
+          and industrial state-of-the-art. A seemingly large amount of misconceptions surrounding best practice in
+          biomanufacturing persist in Academia, such as specific titer quantities or comparative importance of chassis
+          engineering vs downstream processing. Notably, there has been comparatively low interest from researchers in
+          downstream processing improvements as opposed to yield-centric strain engineering. Largely, this was
+          attributed to different funding structures and a lack of incentives to share achievements from industry. As
+          Mr. Warner pointed out, intellectual property and the pursuit of a competitive edge has allowed many
+          industry-engineered strains to far surpass the current best estimates in academia.
+
+          This lead us to critically reexamine some assumptions of our project. Namely, doubling down on pursuing
+          bioreactor fermentation in order to produce more industry-relevant quantification.
+
+          Mr. Warner expressed that a large amount of businesses in the novel foods sector likely fail due to blind
+          spots in industrial contexts, validating our effort to contact corporate bioprocessing experts. A common issue
+          was focus on rPOI expression improvement taking attention away from needed and viable methods of purification.
+          Drawing on experience, he flagged that there were likely no insurmountable hurdles to producing large volumes
+          of growth factors in methanol-fed *K. phaffii*. This confirmed our suspicion that barriers mostly exist in
+          protein degradation during downstream processing. Seed-scale production companies of lower-cost growth factors
+          for cultivated meat were driven by what Mr Warner called a “chicken and egg problem” that is fuelled by market
+          uncertainty. In essence, synthetic meat companies are not scaling due to lack of affordable growth factors,
+          while the lack of active market discourages development in food-grade growth factor production. Additionally,
+          he emphasized that the existing cleanroom standards followed by most bioproduction plants are prohibitively
+          expensive for scaling up food-grade protein production, highlighting the need for more large-scale facilities
+          specifically designed for this purpose.
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="timeline-section-header" id="culturing">
@@ -413,20 +603,22 @@ the world. Consider how the world affects your work and how your work affects th
       <div class="timeline-content">
         <div class="spacer5"></div>
         <p style="text-align: left;">We contacted Dr. Noah Sprent, co-founder of ChangeBio, a startup focusing on
-          industrial protein manufacturing innovation in *K. phaffii*, while planning our mini jamboree. We found an
-          overlap in interest on fundamental, open contributions to support commercially viable *K. phaffii*
+          industrial protein manufacturing innovation in <i>K. phaffii</i>, while planning our mini jamboree. We found
+          an
+          overlap in interest on fundamental, open contributions to support commercially viable <i>K. phaffii</i>
           applications.
           <br><br>
           Our cell wall and mannose pathway targeting was validated as a potential blind spot in engineering of the
           Chassis, given the long running history of trHoc1 strains with little iteration. Dr. Sprent agreed on the
           essentiality of downstream processing efficiency gains, as well as the room for improvement present there. As
-          this is the first year of *K. phaffii* being greenlit as a Chassis, we planned a collaboration to publish the
+          this is the first year of <i>K. phaffii</i> being greenlit as a Chassis, we planned a collaboration to publish
+          the
           whole genome sequence of a strain lacking commercial licensing issues or restrictions. This is part of an
-          effort spearheaded by Dr. Sprent named PhaffiiNet, which aims to avoid the commercial red tape around *K.
-          phaffii* strains that Dr. Sprent ran into commercial licensing limitations with.
+          effort spearheaded by Dr. Sprent named PhaffiiNet, which aims to avoid the commercial red tape around <i>K.
+            phaffii</i> strains that Dr. Sprent ran into commercial licensing limitations with.
           <br><br>
-          He agreed to transfer the strain to us for validation purposes and thus support the development of *K.
-          phaffii* as a commercial strain within iGEM.
+          He agreed to transfer the strain to us for validation purposes and thus support the development of <i>K.
+            phaffii</i> as a commercial strain within iGEM.
           <br><br>
           Dr. Sprent generously offered us a 2L bioreactor to run a trial fermentation in, which would yield more
           industrially relevant results than shake flask cultures.
@@ -437,12 +629,14 @@ the world. Consider how the world affects your work and how your work affects th
           this point the strategy was not feasible as we had already followed through with our CRISPR recombination
           engineering.
           <br><br>
-          Additionally, Dr. Sprent directed us towards several industry experts in *K. phaffii* manufacturing at scale,
+          Additionally, Dr. Sprent directed us towards several industry experts in <i>K. phaffii</i> manufacturing at
+          scale,
           including Mark Warner and Blake Byrne, who we later reached out to.
         </p>
       </div>
     </div>
   </div>
+
 
 
   <div class="timeline-section-header" id="scale-up-process-design">
@@ -476,9 +670,8 @@ the world. Consider how the world affects your work and how your work affects th
           described as transition from research to commercial scale, expensive validation studies for stirred tank
           bioreactors, and lack of established market for bulk growth factors. Although growth factors are available on
           the milligram scale, finding suppliers that would produce kilogram-scale food-grade and low-cost growth
-          factors remains an unsolved issue. Martin has also directed us towards a report
-          [https://gfi.org/wp-content/uploads/2021/11/Cultivated-meat-media-and-growth-factor-trends-2020.pdf] from the
-          Good Food Institute, which outlines that growth factors can contribute up to 90% of media cost.
+          factors remains an unsolved issue. Martin has also directed us towards a report from the
+          Good Food Institute [1], which outlines that growth factors can contribute up to 90% of media cost.
           <br><br>
           This has confirmed our initial focus on growth factors for synthetic meat, but more importantly showed that
           projects financial success will be determined by matching a market need. This was further emphasized by
@@ -563,7 +756,7 @@ the world. Consider how the world affects your work and how your work affects th
     <div class="column-right">
       <div class="timeline-content">
         <div class="spacer5"></div>
-        <p style="text-align: left;">Dr. Martina Miotto is the cofounder of CellRev, a company that just stoped trading
+        <p style="text-align: left;">Dr. Martina Miotto is the cofounder of CellRev, a company that just stopped trading
           recently. She shared her experience building a company that initially focused on cellular agriculture before
           ultimately pivoting toward pharma. Her journey highlighted both the promise and the pitfalls of the cultivated
           meat industry: despite developing a high-yield, continuous adherent cell manufacturing process and securing
@@ -710,6 +903,87 @@ the world. Consider how the world affects your work and how your work affects th
   </div>
 
 
+  <div class="timeline-section-header header-grey" id="ip">
+    <div class="tagline-subline"><span>IP</span></div>
+  </div>
+
+  <div class="two-column-container timeline-event timeline-event-grey">
+    <div class="timeline-dot"></div>
+    <div class="column-left">
+      <div class="timeline-content">
+
+        <div class="tagline-subline" style="text-align: center;"><span class="animate-text-scramble">Katie
+            Moruzzi</span>
+        </div>
+        <div class="image-aligner-center">
+          <img src="https://static.igem.wiki/teams/5916/hp/katie.webp" style="max-width: 70%;">
+        </div>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="timeline-content">
+        <p style="text-align: left;">As students working on a project in a patent-heavy industry, we faced uncertainty
+          around the legal pathways to bring our idea to market. We were constrained by both university research rules
+          and international student visa laws, and unsure whether patents or trade secrets would be the most effective
+          route.
+          <br><br>
+          During our consultation with Katie Moruzzi, Imperial Expert-in-Residence and Associate at Briffa -
+          Intellectual Property Lawyers, we learned about the five main categories of IP protection: trademarks,
+          copyright, registered designs, patents, and confidential know-how. We also discussed the trade-offs between
+          filing patents and relying on trade secrets. Patents can provide strong protection but are costly (around
+          £5,000 per country), require public disclosure, and must be expanded internationally within a strict 6-month
+          window. Trade secrets, by contrast, avoid disclosure and costs, but only work if the invention cannot be
+          easily reverse-engineered.
+          <br><br>
+          Additionally, as yeast engineering is highly patented, we have to confirm novelty and freedom-to-operate
+          before filing. We were advised to perform prior searches, check our names and logos against UK Companies House
+          and IPO databases, and speak with SynBio-specialist patent attorneys, which we have immediately taken upon
+          doing.
+          <br><br>
+          Another key complication we would encounter is company formation: as international students, we cannot
+          immediately incorporate in the UK, which risks fragmenting ownership if IP is held individually, hence we had
+          to look into alternative ways of incorporation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="two-column-container timeline-event timeline-event-grey">
+    <div class="timeline-dot"></div>
+    <div class="column-left">
+      <div class="timeline-content">
+
+        <div class="tagline-subline" style="text-align: center;"><span class="animate-text-scramble">Sara Holland</span>
+        </div>
+        <div class="image-aligner-center">
+          <img src="https://static.igem.wiki/teams/5916/hp/sara.webp" style="max-width: 60%;">
+        </div>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="timeline-content">
+        <div class="spacer5"></div>
+        <p style="text-align: left;">After our meeting with an IP lawyer, we continued our exploration of IP law by
+          investigating patenting possibilities. We met with Sara Holland, Partner at Potter Clarkson, who specialises
+          in biotechnology patents and has a track record of supporting iGEM teams. She briefed us on patentability
+          criteria, specifically how unique gene knockout combinations could be patentable if they produce unexpected
+          synergistic effects. We also discussed patenting practices across different jurisdictions, including the US,
+          UK, and China. She recommended the European Patent Office as our primary patenting venue because it's more
+          favorable than the US, particularly due to its narrower prior art rules. However, the filing timeline was
+          identified as a major barrier: any patent application would need to be submitted well before iGEM deadlines,
+          requiring a UK priority filing within days. While minimal preliminary data would suffice for an initial
+          filing, the uncertainty around ownership with Imperial College complicated matters further, as Imperial could
+          either retain ownership and cover costs, disclaim ownership and leave costs to us, or negotiate shared
+          ownership. After considering these factors, and staying aligned with our commitment to open science, we
+          decided not to pursue patent protection, ensuring our work remains accessible to future iGEM teams while
+          focusing on immediate project impact.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
   <div class="timeline-section-header header-grey" id="simulating-a-biotech-investor-pitch">
     <div class="tagline-subline"><span>Simulating a Biotech Investor Pitch</span></div>
   </div>
@@ -795,5 +1069,15 @@ the world. Consider how the world affects your work and how your work affects th
 
 </div>
 
+
+<div class="citation-block" id="citations">
+  <h3>References</h3>
+  <ol>
+    <li>
+      E. Swartz, “Cell culture media and growth factor trends in the cultivated meat industry,” The Good Food
+      Institute, 2021.
+    </li>
+  </ol>
+</div>
 
 {% endblock %}
