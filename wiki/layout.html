@@ -190,7 +190,7 @@
 
 
 
-        const scrollThreshold = 100;
+            const scrollThreshold = 100;
 
 
             const transformingTextElements = document.querySelectorAll('.transforming-text-container');
@@ -409,9 +409,153 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
+            // --- Custom Smooth Scroll Function ---
+            function smoothScrollTo(element, duration) {
+                const vwOffset = 30;
+                const offsetInPixels = (vwOffset / 100) * window.innerWidth;
+                const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - offsetInPixels;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+
+
+                const easeInOutCubic = t => t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutCubic(timeElapsed / duration) * distance + startPosition;
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                requestAnimationFrame(animation);
+            }
+
+            // --- Collapsible Logic ---
+            document.querySelectorAll('.collapsible-trigger').forEach(trigger => {
+                let content = trigger.nextElementSibling;
+                if (!content || !content.classList.contains('collapsible-content')) {
+                    content = trigger.parentElement.nextElementSibling;
+                }
+                if (!content) return;
+
+                const closeButton = content.querySelector('.collapsible-close');
+
+                const toggle = (isCloseClick = false) => {
+                    const isOpen = trigger.classList.contains('active');
+
+                    if (isOpen) {
+                        // --- Collapse Section ---
+                        trigger.classList.remove('active');
+
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        setTimeout(() => {
+                            content.style.maxHeight = '0px';
+                        }, 10);
+
+
+                        if (isCloseClick) {
+                            smoothScrollTo(trigger, 100);
+                        }
+                    } else {
+
+                        trigger.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                };
+
+                trigger.addEventListener('click', () => toggle(false));
+                if (closeButton) {
+                    closeButton.addEventListener('click', () => toggle(true));
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const glitchElements = document.querySelectorAll('.text-glitch');
+
+            if (glitchElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const el = entry.target;
+                        if (entry.isIntersecting) {
+                            // Start the random glitch loop when the element is in view
+                            if (!el.glitchTimeout) {
+                                scheduleGlitch(el);
+                            }
+                        } else {
+                            // Stop the loop when the element is out of view to save resources
+                            if (el.glitchTimeout) {
+                                clearTimeout(el.glitchTimeout);
+                                el.glitchTimeout = null;
+                                el.classList.remove('glitching');
+                            }
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                // This function schedules the next glitch attempt at a random interval
+                function scheduleGlitch(el) {
+                    const randomDelay = Math.random() * 1200 + 200;
+                    el.glitchTimeout = setTimeout(() => runGlitch(el), randomDelay);
+                }
+
+                // This function runs a glitch and then schedules the next one
+                function runGlitch(el) {
+                    const shouldGlitch = Math.random() > 0.85; 
+
+                    if (shouldGlitch) {
+                        const randomDuration = Math.random() * 350 + 100; 
+                        el.classList.add('glitching');
+                        setTimeout(() => {
+                            el.classList.remove('glitching');
+                        }, randomDuration);
+                    }
+
+                    // Schedule the next attempt
+                    scheduleGlitch(el);
+                }
+
+                glitchElements.forEach(el => observer.observe(el));
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const imagesToTilt = document.querySelectorAll('.tilt-effect');
+
+            imagesToTilt.forEach(img => {
+                // The event listener is now on the parent container 
+                const container = img.parentElement;
+                const maxTilt = 15; 
+
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = container.offsetWidth / 2;
+                    const centerY = container.offsetHeight / 2;
+                    const rotateY = ((x - centerX) / centerX) * maxTilt;
+                    const rotateX = ((y - centerY) / centerY) * -maxTilt;
+
+                    img.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    img.style.boxShadow = '0 25px 40px rgba(0,0,0,0.3)';
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    img.style.transform = 'scale(1) rotateX(0) rotateY(0)';
+                    img.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
 
 </body>
 
 </html>
-
