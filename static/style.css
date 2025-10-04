@@ -2173,7 +2173,7 @@ h3 {
 .side-scroll-nav {
   position: fixed;
   left: 0.1vw;
-  bottom: 30vh;
+  bottom: 25vh;
   height: max-content;
   width: max-content;
   display: flex;
@@ -2221,14 +2221,14 @@ h3 {
 }
 
 .side-scroll-nav-label {
-  font-size: 0.75rem;
+  font-size: clamp(0.8rem, 0.5vw + 0.3rem, 1rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-muted);
 }
 
 .side-scroll-nav a {
-  font-size: 0.82rem;
+  font-size: clamp(0.9rem, 1vw + 0.3rem, 1.2rem);
   color: var(--color-foreground);
   text-align: left;
   line-height: 1.3;
@@ -2251,10 +2251,6 @@ h3 {
   border-left: 1px solid rgba(17, 17, 17, 0.12);
 }
 
-.side-scroll-nav a.sub-link {
-  font-size: 0.75rem;
-  color: var(--color-muted);
-}
 
 .side-scroll-nav a.sub-link:hover,
 .side-scroll-nav a.sub-link.active {
