@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block title %}Downstream Processing{% endblock %}
+{% block lead %}{% endblock %}
+
+
+{% block scroll_nav %}
+<nav class="side-scroll-nav scroll-nav">
+    <span class="side-scroll-nav-label">On This Page</span>
+    <a href="#design-a">Design A</a>
+    <a href="#design-b">Design B</a>
+    <a href="#design-c">Design C</a>
+    <a href="#design-comparison">Comparison</a>
+    <a href="#final-contribution">Contribution</a>
+</nav>
+{% endblock %}
+
+{% block page_content %}
+
+<div class="education-hero dsp-banner">
+    <div class="education-hero-content-container">
+        <h1 class="text-glitch">Downstream Processing</h1>
+    </div>
+</div>
+
+<div class="spacer5"></div>
+
+<div class="page-section width-75" id="design-a">
+    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design A: Cost-Focused Baseline</strong>
+    </h2>
+    <div class="collapsible-content">
+        <div class="image-aligner-center">
+            <img src="" alt="Process diagram for cost-focused baseline" class="section-image"
+                style="margin-bottom: 2rem;">
+            <p style="text-align: left;"><em>insert process diagram</em></p>
+        </div>
+        <p style="text-align: left;">
+            The cost-focused process was designed to prioritise affordability over environmental or operational
+            complexity. It features a straightforward linear production line with minimal system redundancy and no
+            recovery or recycling systems. Media is heat-sterilised in batches and stored in large, jacketed vessels.
+            Cells are thawed, seeded, expanded, and differentiated in parallel single-use bioreactors. Once harvested,
+            the biomass is cooled, packaged, and frozen with no further processing or recovery of media or cells.
+            Cleaning is infrequent and performed manually where possible.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            This design mimics the likely setup for early-stage startups with limited funding or technical capacity. Its
+            simplicity keeps capital and operational expenditure low but comes at the cost of high material usage, water
+            consumption, and overall environmental burden.
+        </p>
+        <div class="collapsible-close">Close</div>
+    </div>
+</div>
+
+<div class="page-section width-75" id="design-b">
+    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design B:
+            Environmentally-Optimised</strong></h2>
+    <div class="collapsible-content">
+        <div class="image-aligner-center">
+            <img src="" alt="Process diagram for environmentally-optimised design" class="section-image"
+                style="margin-bottom: 2rem;">
+            <p style="text-align: left;"><em>insert process diagram</em></p>
+        </div>
+        <p style="text-align: left;">
+            This design introduces major changes aimed at reducing environmental impact, while still maintaining
+            economic viability. Inputs such as growth media are reformulated using plant-based ingredients (e.g., soy
+            hydrolysate, beet sugar) instead of animal-derived or synthetic components. The process replaces high-energy
+            mechanical agitation with air-lift bioreactors, which improve oxygenation with lower shear and energy usage.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            Significant changes are made in upstream design: batch sizes are optimised to reduce excess, and deep
+            cryostorage is replaced with cold-chain liquid storage, reducing energy demands. Cleaning cycles (CIP/SIP)
+            are integrated into the schedule and simulated in life cycle assessments, revealing a more accurate picture
+            of water use and emissions.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            Overall, this process reduces CO₂ emissions and water use by over 50%, demonstrating that sustainable design
+            can be achieved without prohibitive cost increases.
+        </p>
+        <div class="collapsible-close">Close</div>
+    </div>
+</div>
+
+<div class="page-section width-75" id="design-c">
+    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design C: Hybrid with Recovery
+            Loops</strong></h2>
+    <div class="collapsible-content">
+        <div class="image-aligner-center">
+            <img src="" alt="Process diagram for hybrid design" class="section-image" style="margin-bottom: 2rem;">
+            <p style="text-align: left;"><em>insert process diagram</em></p>
+        </div>
+        <p style="text-align: left;">
+            The final process adds modular recovery systems to maximise yield and minimise waste. This includes
+            enzymatic digestion of microcarriers to recover residual cells, filtration and reverse osmosis to recycle
+            process water, and automated cleaning cycles with recovery tanks. While the base layout resembles the
+            environmentally optimised system, additional holding tanks, enzyme steps, and product sorting modules are
+            included.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            This design increases capital cost and system complexity but recovers otherwise lost materials. It also
+            introduces a secondary product stream: recovered cells that may be repurposed as high-value biotech or
+            cosmetic ingredients.
+        </p>
+        <div class="collapsible-close">Close</div>
+    </div>
+</div>
+
+<div class="page-section width-75" id="design-comparison">
+    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Design Comparison</strong></h2>
+    <div class="collapsible-content">
+        <p style="text-align: left;">
+            Across the three designs, the strategies change. Design A is linear and simple, aimed at cost minimisation.
+            Design B introduces sustainable inputs and reactor design choices. Finally, Design C layers on complexity to
+            close resource loops and extract value from waste along the process.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            Each process reflects a different set of priorities. Design A is suited to rapid deployment or low-tech
+            environments. Design B shows that smart substitutions and modular design can drastically cut environmental
+            impact without large added cost. Design C demonstrates that circular processing and recovery systems are
+            feasible and offer long-term efficiency gains, but require upfront investment and tighter system
+            integration.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            Key considerations we made between processes include, sterilisation method (batch vs. continuous), storage
+            strategy (deep freeze vs. cold liquid chain), Reactor type (stirred-tank vs. air-lift), presence of
+            water/cell recovery in the final system. Inclusion of CIP/SIP and their effect on water use and CO₂
+            emissions
+        </p>
+        <div class="collapsible-close">Close</div>
+    </div>
+</div>
+
+<div class="page-section width-75" id="final-contribution">
+    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Final Contribution: A Clearer Blueprint for
+            Cultivated Meat Processing</strong></h2>
+    <div class="collapsible-content">
+        <p style="text-align: left;">
+            The hybrid process in Design C, contributes a key improvement: it combines environmental and economic goals
+            in a single, modular layout. It offers a template that balances material cost, operational complexity, and
+            sustainability, crucial for industries like cultivated meat where margins are tight and scale-up is
+            essential.
+        </p>
+        <div class="spacer"></div>
+        <p style="text-align: left;">
+            This staged comparison provides a roadmap for early-stage cultivated meat companies: start lean, optimise
+            inputs, then close the loop. It also highlights where future bioprocessing efforts, like smarter
+            microcarriers or lower-impact cleaning methods, could deliver the greatest gains.
+        </p>
+        <div class="collapsible-close">Close</div>
+    </div>
+</div>
+
+{% endblock %}
