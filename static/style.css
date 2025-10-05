@@ -2149,7 +2149,7 @@ h3 {
 
 .side-scroll-nav {
   position: fixed;
-  left: 0.1vw;
+  left: 0.05vw;
   bottom: 25vh;
   height: max-content;
   width: max-content;
