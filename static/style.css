@@ -133,7 +133,7 @@ h3 {
 }
 
 .content ul li {
-    font-size: 16pt
+  font-size: 14pt
 }
 
 
@@ -803,9 +803,9 @@ h3 {
 }
 
 .member-photo {
-  width: 250px;
-  height: auto;
-  object-fit: cover;
+  width: 20%;
+  height: 40%;
+  object-fit:contain;
   flex-shrink: 0;
 }
 
@@ -968,7 +968,7 @@ h3 {
 }
 
 /* ===============================================================
- * === Mobile & Tablet Styles ====================================
+ * === Mobile & Smaller screen ====================================
  * =============================================================== */
 
 @media (max-width: 1300px) {
@@ -976,9 +976,14 @@ h3 {
     font-size: 12pt;
   }
 
+  .timeline-content p {
+    font-size: 12pt;
+  }
+
+
   .content ul li {
     font-size: 12pt
-}
+  }
 
   .tagline-subline {
     font-size: 25pt;
@@ -1001,6 +1006,7 @@ h3 {
   }
 
 
+
 }
 
 
@@ -1014,9 +1020,9 @@ h3 {
     max-width: 75vw;
   }
 
-    .content ul li {
+  .content ul li {
     font-size: 6pt
-}
+  }
 
   .tagline {
     font-size: 10pt;
@@ -1118,7 +1124,7 @@ h3 {
 }
 
 .hp-banner {
-  background-image: url("https://static.igem.wiki/teams/5916/hp/hpbanner.webp");
+  background-image: url("https://static.igem.wiki/teams/5916/hp/bannerhp.webp");
 }
 
 .team-banner {
@@ -1969,7 +1975,7 @@ h3 {
     min-width: 120px;
   }
 
- 
+
   .timeline-row-top .timeline-item a {
     flex-direction: column;
   }
@@ -2020,7 +2026,7 @@ h3 {
 }
 
 .timeline-content p {
-  font-size: 12pt;
+  font-size: 15pt;
 }
 
 .timeline-section-header {
@@ -2157,7 +2163,7 @@ h3 {
   flex-direction: column;
   gap: 0.6rem;
   padding: 1rem;
-  background-color:#F2F2F0;
+  background-color: #F2F2F0;
   border: 1px solid #F2F2F0;
 
   z-index: 80;
@@ -2249,90 +2255,90 @@ h3 {
  * === Collapse the content ==================================
  * =============================================================== */
 .collapsible-trigger {
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    user-select: none;
-    position: relative;
-    padding-bottom: 5px;
-    font-weight: 600;
-    margin-top: 2rem;
-    width: fit-content;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  padding-bottom: 5px;
+  font-weight: 600;
+  margin-top: 2rem;
+  width: fit-content;
 }
 
 .collapsible-trigger::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000000;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .collapsible-trigger:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .collapsible-trigger::after {
-    content: '+';
-    font-size: 2rem;
-    font-weight: 400;
-    color: #000000;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    margin-left: 0.75rem;
-    line-height: 1;
+  content: '+';
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000000;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-left: 0.75rem;
+  line-height: 1;
 }
 
 .collapsible-trigger.active::after {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .collapsible-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .collapsible-close {
-    display: block;
-    margin-top: 2rem;
-    padding: 0.5rem;
-    text-align: center;
-    cursor: pointer;
-    font-weight: 600;
-    color: #000000;
-    border-top: 1px solid #080808;
-    transition: color 0.2s ease, background-color 0.2s ease;
+  display: block;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000000;
+  border-top: 1px solid #080808;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .collapsible-close:hover {
-    color: #ffffff;
-    background-color: #000000;
+  color: #ffffff;
+  background-color: #000000;
 }
 
 
 .timeline-event-grey .collapsible-trigger,
 .timeline-event-grey .collapsible-trigger::after {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .timeline-event-grey .collapsible-trigger::before {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .collapsible-close-grey {
-    color: #ffffff;
-    border-top: 1px solid #ffffff;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
 }
 
 .collapsible-close-grey:hover {
-    color: #000000;
-    background-color: #ffffff;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 @keyframes glitch {
