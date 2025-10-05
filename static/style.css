@@ -132,6 +132,10 @@ h3 {
   font-size: clamp(0.25rem, 1.5vw, 1.2rem);
 }
 
+.content ul li {
+    font-size: 16pt
+}
+
 
 .page-title {
   text-align: center;
@@ -972,6 +976,10 @@ h3 {
     font-size: 12pt;
   }
 
+  .content ul li {
+    font-size: 12pt
+}
+
   .tagline-subline {
     font-size: 25pt;
   }
@@ -1005,6 +1013,10 @@ h3 {
   .content {
     max-width: 75vw;
   }
+
+    .content ul li {
+    font-size: 6pt
+}
 
   .tagline {
     font-size: 10pt;
@@ -1096,7 +1108,7 @@ h3 {
   background-image: url('https://static.igem.wiki/teams/5916/education/edu-banner.webp');
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 350px;
   width: 100vw;
   position: relative;
   left: 50%;
@@ -2184,7 +2196,7 @@ h3 {
 }
 
 .side-scroll-nav-label {
-  font-size: clamp(0.8rem, 0.5vw + 0.3rem, 1rem);
+  font-size: clamp(0.6rem, 0.4vw + 0.3rem, 0.9rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-muted);
@@ -2237,65 +2249,91 @@ h3 {
  * === Collapse the content ==================================
  * =============================================================== */
 .collapsible-trigger {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    user-select: none;
+    position: relative;
+    padding-bottom: 5px;
+    font-weight: 600;
+    margin-top: 2rem;
+    width: fit-content;
+}
+
+.collapsible-trigger::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.collapsible-trigger:hover::before {
+    transform: scaleX(1);
 }
 
 .collapsible-trigger::after {
-  content: '+';
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--color-muted);
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  margin-left: 1rem;
-}
-
-.timeline-event-grey .collapsible-trigger::after {
-  color: #ffffff;
+    content: '+';
+    font-size: 2rem;
+    font-weight: 400;
+    color: #000000;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-left: 0.75rem;
+    line-height: 1;
 }
 
 .collapsible-trigger.active::after {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-
-  transition: max-height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .collapsible-close {
-  display: block;
-  margin-top: 2rem;
-  padding: 0.5rem;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 600;
-  color: #000000;
-  border-top: 1px solid #080808;
-  transition: color 0.2s ease, background-color 0.2s ease;
+    display: block;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    border-top: 1px solid #080808;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .collapsible-close:hover {
-  color: #ffffff;
-  background-color: #000000;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+
+.timeline-event-grey .collapsible-trigger,
+.timeline-event-grey .collapsible-trigger::after {
+    color: #ffffff;
+}
+
+.timeline-event-grey .collapsible-trigger::before {
+    background-color: #ffffff;
 }
 
 .collapsible-close-grey {
-  color: #ffffff;
-  border-top: 1px solid #ffffff;
+    color: #ffffff;
+    border-top: 1px solid #ffffff;
 }
 
 .collapsible-close-grey:hover {
-  color: #000000;
-  background-color: #ffffff;
+    color: #000000;
+    background-color: #ffffff;
 }
-
-
 
 @keyframes glitch {
 
