@@ -32,7 +32,17 @@
                 </ul>
             <li><a href="{{ url_for('pages', page='downstream-processing') }}">DSP</a></li>
             <li><a href="{{ url_for('pages', page='education') }}">EDUCATION</a></li>
-            <li><a href="{{ url_for('pages', page='human-practices') }}">HP</a></li>
+
+            <li class="has-dropdown">
+                <a href="#"> iHP</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('pages', page='human-practices') }}"><span>Human Practices</span></a></li>
+                    <li><a href="{{ url_for('pages', page='ethics') }}"><span>Ethics</span></a></li>
+                    <li><a href="{{ url_for('pages', page='business') }}"><span>Business</span></a></li>
+                    <li><a href="{{ url_for('pages', page='inspiration') }}"><span>Inspiration</span></a></li>
+                </ul>
+
+
 
             <li class="has-dropdown">
                 <a href="#"> TEAM</a>
@@ -43,4 +53,3 @@
         </ul>
     </nav>
 </header>
-

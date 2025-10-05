@@ -971,7 +971,7 @@ h3 {
  * === Mobile & Smaller screen ====================================
  * =============================================================== */
 
-@media (max-width: 1300px) {
+@media (max-width: 1500px) {
   .page-section p {
     font-size: 12pt;
   }
